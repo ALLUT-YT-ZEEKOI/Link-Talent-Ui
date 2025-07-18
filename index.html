@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Pilot UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: #fff;
+            min-height: 100vh;
+            position: relative;
+            /* Subtle grid background */
+            background-image: 
+                linear-gradient(to right, #e5eaea1a 1px, transparent 1px),
+                linear-gradient(to bottom, #e5eaea1a 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 40px 0 40px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 2rem;
+            color: #003944;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #e6ff7f;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 2rem;
+            font-family: monospace;
+        }
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #003944;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .nav a.active, .nav a:hover {
+            color: #003944;
+            font-weight: 700;
+        }
+        .register-btn {
+            background: #e6ff7f;
+            color: #003944;
+            border: none;
+            border-radius: 32px;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #e6ff7f44;
+            transition: background 0.2s;
+        }
+        .register-btn:hover {
+            background: #d4f76a;
+        }
+        .main-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            position: relative;
+            background-image: url('assets/businessman-2108029_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 500px; /* Adjust as needed */
+        }
+        .main-content::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+          
+            z-index: 0;
+        }
+        .main-content > * {
+            position: relative;
+            z-index: 1;
+        }
+        .badge {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 160px;
+            height: 160px;
+            background: #ffeec0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 16px #ffeec044;
+        }
+        .badge-content {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .badge-content span {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #222;
+            font-weight: 500;
+            transform: rotate(-20deg);
+        }
+        .badge-content .compass {
+            font-size: 2.5rem;
+            color: #222;
+            z-index: 1;
+        }
+        .badge-content .orbit {
+            position: absolute;
+            width: 140px;
+            height: 60px;
+            border: 1.5px solid #222;
+            border-radius: 50%;
+            left: -10px;
+            top: 30px;
+            transform: rotate(-20deg);
+            opacity: 0.5;
+        }
+        .center-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .headline {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #003944;
+            text-align: center;
+            margin-bottom: 16px;
+            margin-top: 40px;
+        }
+        .subheadline {
+            font-size: 1.2rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 40px;
+            box-shadow: 0 2px 16px #e5eaea33;
+            padding: 4px;
+            /* padding: 4px 4px 0px 4px; */
+            /* width: 600px; */
+            max-width: 90vw;
+            margin: 0 auto;
+            position: relative;
+            gap: 0;
+            /* height: 60px; */
+            border-radius: 32px;
+        }
+
+        .search-field {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            gap: 8px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            background: transparent;
+            flex: 1;
+            padding: 12px 0;
+            min-width: 0;
+        }
+
+        .search-bar .divider {
+            width: 1px;
+            height: 32px;
+            background: #e5eaea;
+            margin: 0 16px;
+        }
+
+        .search-bar .icon {
+            color: #003944;
+            font-size: 1.3rem;
+            margin-right: 0;
+        }
+
+        .search-btn {
+            background: #e6ff7f !important; /* or #e6ff57 for more vibrancy */
+            color: #003944;
+            border: none;
+            border-radius: 40px;
+            padding: 0 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            height: 52px;
+            transition: background 0.2s;
+            align-self: stretch;
+            box-shadow: 0 2px 8px #e6ff7f44;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-btn:hover {
+            background: #d4f76a;
+        }
+        .platform-section {
+            background: #eaf3f6;
+            padding: 48px 0 56px 0;
+            margin-top: 60px;
+        }
+        .platform-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto 32px auto;
+            padding: 0 32px;
+        }
+        .platform-header h2 {
+            font-size: 2.5rem;
+            color: #003944;
+            font-weight: 700;
+            margin: 0;
+        }
+        .platform-header h2 span {
+            font-weight: 700;
+        }
+        .see-all {
+            color: #003944;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: text-decoration 0.2s;
+        }
+        .see-all:hover {
+            text-decoration: underline;
+        }
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .platform-card {
+            background: #fff;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 4px 8px 4px 4px;
+            box-shadow: 0 2px 12px #0039440a;
+            font-size: 1.1rem;
+            transition: box-shadow 0.2s, background 0.2s;
+            position: relative;
+        }
+        .platform-card--active {
+            background: #003944;
+            color: #fff;
+        }
+        .platform-card--active .platform-title,
+        .platform-card--active .platform-jobs {
+            color: #fff;
+        }
+        .platform-card--active .platform-icon--active {
+            background: #e6ff7f;
+            color: #003944;
+        }
+        .platform-icon {
+            font-size: 21px;
+            background: #eaf3f6;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .platform-icon--active {
+            background: #e6ff7f !important;
+            color: #003944 !important;
+        }
+        .platform-title {
+            font-weight: 700;
+            color: #003944;
+            font-size: 1.15rem;
+        }
+        .platform-jobs {
+            color: #6a7a7d;
+            font-size: 1rem;
+            margin-top: 2px;
+        }
+        .platform-arrow {
+            margin-left: auto;
+            font-size: 1.7rem;
+            color: #003944;
+            opacity: 0.5;
+        }
+        .platform-card--active .platform-arrow {
+            color: #fff;
+            opacity: 1;
+        }
+        @media (max-width: 1100px) {
+            .platform-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 700px) {
+            .platform-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .platform-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .platform-section {
+                padding: 32px 0 32px 0;
+            }
+        }
+        @media (max-width: 900px) {
+            .header {
+                flex-direction: column;
+                gap: 16px;
+                padding: 24px 10px 0 10px;
+            }
+            .main-content {
+                flex-direction: column;
+                margin-top: 24px;
+            }
+            .badge {
+                position: static;
+                transform: none;
+                margin-bottom: 24px;
+            }
+            .center-content {
+                width: 100%;
+            }
+            .headline {
+                font-size: 2.2rem;
+            }
+            .search-bar {
+                width: 100%;
+                min-width: 0;
+            }
+            .platform-header {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            .platform-grid {
+                grid-template-columns: 1fr;
+                padding: 0 16px;
+            }
+        }
+        .newsletter-section {
+            max-width: 1200px;
+            margin: 60px auto 40px auto;
+            background: #08545a;
+            border-radius: 36px;
+            padding: 56px 24px 48px 24px;
+            position: relative;
+            text-align: center;
+            color: #fff;
+            /* Subtle grid background */
+            background-image: 
+                linear-gradient(to right, #fff2 1px, transparent 1px),
+                linear-gradient(to bottom, #fff2 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .newsletter-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #fff;
+        }
+        .newsletter-content p {
+            color: #c7e3e6;
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .newsletter-form input[type="email"] {
+            flex: 1;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 32px 0 0 32px;
+            font-size: 1.1rem;
+            outline: none;
+            min-width: 0;
+        }
+        .newsletter-form button {
+            background: #e6ff7f;
+            color: #003944;
+            border: none;
+            border-radius: 0 32px 32px 0;
+            padding: 16px 36px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .newsletter-form button:hover {
+            background: #d4f76a;
+        }
+        @media (max-width: 700px) {
+            .newsletter-section {
+                padding: 32px 6px 28px 6px;
+            }
+            .newsletter-content h2 {
+                font-size: 1.3rem;
+            }
+            .newsletter-form {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .newsletter-form input[type="email"], .newsletter-form button {
+                border-radius: 32px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+        .featured-section {
+            max-width: 1300px;
+            margin: 60px auto 0 auto;
+            padding: 0 32px 48px 32px;
+        }
+        .featured-header h2 {
+            font-size: 2.5rem;
+            color: #003944;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .featured-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 20px 16px 16px 16px;
+            box-shadow: 0 2px 16px #e5eaea33;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #eaf3f6;
+            transition: box-shadow 0.2s, border 0.2s;
+        }
+        .featured-card:hover {
+            box-shadow: 0 4px 24px #e6ff7f44;
+            border: 2px solid #e6ff7f;
+        }
+        .featured-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .featured-job-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #003944;
+        }
+        .featured-company {
+            font-size: 1rem;
+            color: #003944;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+        .verified {
+            color: #3fae2a;
+            font-size: 1rem;
+            margin-left: 4px;
+        }
+        .featured-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: contain;
+            background: #fff;
+            border: 1px solid #e5eaea;
+            margin-left: 12px;
+        }
+        .featured-desc {
+            color: #444;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            min-height: 40px;
+        }
+        .featured-meta {
+            display: flex;
+            gap: 18px;
+            color: #003944;
+            font-size: 1rem;
+            margin-bottom: 18px;
+            align-items: center;
+        }
+        .featured-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .featured-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            gap: 16px;
+        }
+        .featured-salary {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #003944;
+        }
+        .featured-salary-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        .featured-apply {
+            border: 2px solid #003944;
+            background: transparent;
+            color: #003944;
+            border-radius: 32px;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .featured-apply--primary {
+            background: #003944;
+            color: #fff;
+        }
+        .featured-apply:hover {
+            background: #003944;
+            color: #fff;
+        }
+        .featured-footer {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .featured-more-btn {
+            background: #e6ff7f;
+            color: #003944;
+            border: none;
+            border-radius: 32px;
+            padding: 16px 48px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #e6ff7f44;
+            transition: background 0.2s;
+        }
+        .featured-more-btn:hover {
+            background: #d4f76a;
+        }
+        @media (max-width: 1100px) {
+            .featured-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+        }
+        @media (max-width: 700px) {
+            .featured-section {
+                padding: 0 8px 32px 8px;
+            }
+            .featured-header h2 {
+                font-size: 1.3rem;
+            }
+            .featured-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .featured-card {
+                padding: 18px 10px 14px 10px;
+            }
+        }
+        .trending-section {
+            margin: 60px auto 0 auto;
+            max-width: 1200px;
+            padding: 0 32px 48px 32px;
+        }
+        .trending-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        .trending-header h2 {
+            font-size: 2.2rem;
+            color: #003944;
+            font-weight: 700;
+            margin: 0;
+        }
+        .see-all-jobs {
+            color: #003944;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: text-decoration 0.2s;
+        }
+        .see-all-jobs:hover {
+            text-decoration: underline;
+        }
+        .trending-cards {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .trending-card {
+            background: #eaf3f6;
+            border-radius: 20px;
+            padding: 20px 16px 16px 16px;
+            flex: 1 1 320px;
+            min-width: 320px;
+            max-width: 370px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 16px #e5eaea33;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .trending-card--highlight {
+            background: #e6ffbe;
+        }
+        .trending-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .trending-job-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #003944;
+        }
+        .trending-company {
+            font-size: 1rem;
+            color: #003944;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+        .verified {
+            color: #3fae2a;
+            font-size: 1rem;
+            margin-left: 4px;
+        }
+        .trending-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: contain;
+            background: #fff;
+            border: 1px solid #e5eaea;
+            margin-left: 12px;
+        }
+        .trending-desc {
+            color: #444;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            min-height: 40px;
+        }
+        .trending-meta {
+            display: flex;
+            gap: 18px;
+            color: #003944;
+            font-size: 1rem;
+            margin-bottom: 18px;
+            align-items: center;
+        }
+        .trending-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .trending-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            gap: 16px;
+        }
+        .trending-salary {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #003944;
+        }
+        .trending-salary-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        .trending-apply {
+            border: 2px solid #003944;
+            background: transparent;
+            color: #003944;
+            border-radius: 32px;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .trending-card--highlight .trending-apply {
+            border: 2px solid #003944;
+            background: #fff;
+            color: #003944;
+        }
+        .trending-apply:hover {
+            background: #003944;
+            color: #fff;
+        }
+        @media (max-width: 1100px) {
+            .trending-cards {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .trending-card {
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 700px) {
+            .trending-section {
+                padding: 0 8px 32px 8px;
+            }
+            .trending-header h2 {
+                font-size: 1.3rem;
+            }
+            .trending-card {
+                padding: 18px 10px 14px 10px;
+            }
+        }
+        .footer {
+            background: #fff;
+            margin-top: 60px;
+            padding: 0 0 24px 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .footer-main {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 32px 24px 16px 24px;
+            flex-wrap: wrap;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #003944;
+            min-width: 180px;
+        }
+        .footer-logo .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #e6ff7f;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 2rem;
+            font-family: monospace;
+        }
+        .footer-logo .logo-text {
+            font-size: 2rem;
+            color: #003944;
+            font-weight: bold;
+        }
+        .footer-links {
+            display: flex;
+            flex: 1;
+            justify-content: space-between;
+            gap: 32px;
+            min-width: 600px;
+        }
+        .footer-links > div {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .footer-links a {
+            color: #555;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #003944;
+        }
+        .footer-bottom {
+            border-top: 2px solid #00394422;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px 16px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 8px;
+        }
+        .footer-social-icon {
+            font-size: 1.6rem;
+            color: #003944;
+            background: #eaf3f6;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .footer-social a:hover .footer-social-icon {
+            background: #003944;
+            color: #fff;
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 32px;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 4px;
+        }
+        .footer-bottom-links a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-bottom-links a:hover {
+            color: #003944;
+        }
+        .footer-copyright {
+            color: #888;
+            font-size: 1rem;
+            margin-top: 4px;
+        }
+        @media (max-width: 900px) {
+            .footer-main {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 32px;
+                padding: 32px 16px 16px 16px;
+            }
+            .footer-links {
+                min-width: 0;
+                width: 100%;
+                gap: 16px;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+        }
+        @media (max-width: 700px) {
+            .footer-main {
+                padding: 24px 6px 12px 6px;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .footer-bottom {
+                padding: 18px 6px 0 6px;
+                gap: 10px;
+            }
+            .footer-social {
+                gap: 14px;
+            }
+            .footer-bottom-links {
+                gap: 12px;
+                font-size: 0.95rem;
+            }
+        }
+        .footer-divider {
+            border: none;
+            border-top: 2px solid #00394422;
+            margin: 0 0 24px 0;
+            width: 100%;
+        }
+        .footer-bottom-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 32px 24px 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-social-icons {
+            display: flex;
+            gap: 20px;
+        }
+        .footer-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: 2px solid #003944;
+            border-radius: 50%;
+            color: #003944;
+            font-size: 1.6rem;
+            background: #fff;
+            transition: background 0.2s, color 0.2s;
+        }
+        .footer-icon.active,
+        .footer-icon:hover {
+            background: #003944;
+            color: #fff;
+        }
+        .footer-icon .iconify {
+            font-size: 1.6rem;
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 32px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        .footer-bottom-links a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-bottom-links a:hover {
+            color: #003944;
+        }
+        .footer-copyright {
+            color: #888;
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+        @media (max-width: 900px) {
+            .footer-bottom-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+                padding: 0 16px 18px 16px;
+            }
+            .footer-bottom-links {
+                gap: 18px;
+                font-size: 1rem;
+            }
+        }
+        .footer-main-row {
+          background: #fff;
+          padding: 0;
+          font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .footer-main-content {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          max-width: 1300px;
+          margin: 0 auto;
+          padding: 32px 24px 16px 24px;
+          gap: 60px;
+        }
+        .footer-logo {
+          display: flex;
+          align-items: center;
+          font-size: 2rem;
+          font-weight: bold;
+          color: #003944;
+          min-width: 180px;
+          margin-right: 40px;
+        }
+        .footer-logo .logo-icon {
+          width: 40px;
+          height: 40px;
+          background: #e6ff7f;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 10px;
+          font-size: 2rem;
+          font-family: monospace;
+        }
+        .footer-logo .logo-text {
+          font-size: 2rem;
+          color: #003944;
+          font-weight: bold;
+        }
+        .footer-links {
+          display: flex;
+          flex: 1;
+          justify-content: space-between;
+          gap: 60px;
+        }
+        .footer-links > div {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+        .footer-links a {
+          color: #6a6a6a;
+          text-decoration: none;
+          font-size: 1.18rem;
+          transition: color 0.2s;
+          font-weight: 500;
+        }
+        .footer-links a:hover {
+          color: #003944;
+        }
+        @media (max-width: 1100px) {
+          .footer-main-content {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 32px;
+            padding: 32px 16px 16px 16px;
+          }
+          .footer-links {
+            width: 100%;
+            gap: 24px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+          }
+        }
+        @media (max-width: 700px) {
+          .footer-main-content {
+            padding: 24px 6px 12px 6px;
+          }
+          .footer-links {
+            flex-direction: column;
+            gap: 18px;
+          }
+        }
+    </style>
+<!-- Code injected by Five-server -->
+  <script async data-id="five-server" data-file="d:\Job_Pilot_Ui\index.html" type="application/javascript" src="/fiveserver.js"></script>
+  <!-- Code injected by Five-server -->
+  <script async data-id="five-server" data-file="d:\Job_Pilot_Ui\index.html" type="application/javascript" src="/fiveserver.js"></script>
+  </head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <div class="logo-icon">W</div>
+            AZIFA
+        </div>
+        <nav class="nav">
+            <a href="#" class="active">Home</a>
+            <a href="#">Find Jobs</a>
+            <a href="#">Job Alerts</a>
+            <a href="#">Find Candidates</a>
+            <a href="#">Career Advice</a>
+        </nav>
+        <button class="register-btn">Register Now</button>
+    </div>
+    <div class="main-content">
+       
+        <div class="center-content">
+            <div class="headline">Get The Right Job<br>You Deserve</div>
+            <div class="subheadline">1,80,570 jobs listed here! Your dream jobs is waiting.</div>
+            <form class="search-bar">
+                <div class="search-field">
+                    <span class="icon">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <circle cx="10" cy="10" r="7" stroke="#3B82F6" stroke-width="2" fill="#A7F3D0"/>
+                            <line x1="16" y1="16" x2="21" y2="21" stroke="#9333EA" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <input type="text" placeholder="Job title or keyword">
+                </div>
+                <div class="divider"></div>
+                <div class="search-field">
+                    <span class="icon">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <ellipse cx="11" cy="8" rx="5" ry="6" fill="#F87171"/>
+                            <circle cx="11" cy="8" r="2" fill="#fff"/>
+                            <rect x="10" y="14" width="2" height="6" rx="1" fill="#F87171"/>
+                        </svg>
+                    </span>
+                    <input type="text" placeholder="New York, USA">
+                </div>
+                <button class="search-btn" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+        <div class="trending-section">
+        <div class="trending-header">
+            <h2>Trending Jobs</h2>
+            <a href="#" class="see-all-jobs">See All Jobs</a>
+        </div>
+        <div class="trending-cards">
+            <!-- Card 1 -->
+            <div class="trending-card trending-card--highlight">
+                <div class="trending-card-top">
+                    <div>
+                        <div class="trending-job-title">Senior UI Designer</div>
+                        <div class="trending-company">
+                            Microsoft <span class="verified">✔</span>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="trending-logo" />
+                </div>
+                <div class="trending-desc">
+                    Take advantage of a rare opportunity to start from the ground up and build..
+                </div>
+                <div class="trending-meta">
+                    <span>📍 Glendale, CA</span>
+                    <span>💼 Full-time</span>
+                </div>
+                <div class="trending-bottom">
+                    <div>
+                        <div class="trending-salary">$20K</div>
+                        <div class="trending-salary-label">Monthly</div>
+                    </div>
+                    <button class="trending-apply">Apply Now</button>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="trending-card">
+                <div class="trending-card-top">
+                    <div>
+                        <div class="trending-job-title">Product Designer</div>
+                        <div class="trending-company">
+                            Behance <span class="verified">✔</span>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="trending-logo" />
+                </div>
+                <div class="trending-desc">
+                    The Sr Product Designer will be responsible for creating production assets..
+                </div>
+                <div class="trending-meta">
+                    <span>📍 Andover, MA</span>
+                    <span>💼 Remote</span>
+                </div>
+                <div class="trending-bottom">
+                    <div>
+                        <div class="trending-salary">$25K</div>
+                        <div class="trending-salary-label">Monthly</div>
+                    </div>
+                    <button class="trending-apply">Apply Now</button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="trending-card">
+                <div class="trending-card-top">
+                    <div>
+                        <div class="trending-job-title">Marketing Officer</div>
+                        <div class="trending-company">
+                            Mail-chimp <span class="verified">✔</span>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="trending-logo" />
+                </div>
+                <div class="trending-desc">
+                    The Marketing Manager will work as part of a global, cross-functional team that creates
+                </div>
+                <div class="trending-meta">
+                    <span>📍 Weston, MA</span>
+                    <span>💼 Full-time</span>
+                </div>
+                <div class="trending-bottom">
+                    <div>
+                        <div class="trending-salary">$15K</div>
+                        <div class="trending-salary-label">Monthly</div>
+                    </div>
+                    <button class="trending-apply">Apply Now</button>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+   
+    <div class="platform-section">
+        <div class="platform-header">
+            <h2>One platform <span>Many Solutions</span></h2>
+            <a href="#" class="see-all">See All Platform</a>
+        </div>
+        <div class="platform-grid">
+            <div class="platform-card">
+                <span class="platform-icon">
+  <span class="iconify" data-icon="mdi:bullhorn-outline"></span>
+</span>
+                <div>
+                    <div class="platform-title">Marketing</div>
+                    <div class="platform-jobs">58 Jobs Available</div>
+                </div>
+                <span class="platform-arrow">›</span>
+            </div>
+            <div class="platform-card">
+                <span class="platform-icon">💻</span>
+                <div>
+                    <div class="platform-title">Development</div>
+                    <div class="platform-jobs">48 Jobs Available</div>
+                </div>
+                <span class="platform-arrow">›</span>
+            </div>
+            <div class="platform-card platform-card--active">
+                <span class="platform-icon platform-icon--active">🖌️</span>
+                <div>
+                    <div class="platform-title">UI/UX Design</div>
+                    <div class="platform-jobs">78 Jobs Available</div>
+                </div>
+                <span class="platform-arrow">›</span>
+            </div>
+            <div class="platform-card">
+                <span class="platform-icon">📅</span>
+                <div>
+                    <div class="platform-title">Human Research</div>
+                    <div class="platform-jobs">120 Jobs Available</div>
+                </div>
+                <span class="platform-arrow">›</span>
+            </div>
+            <div class="platform-card">
+                <span class="platform-icon">🛡️</span>
+                <div>
+                    <div class="platform-title">Security</div>
+                    <div class="platform-jobs">90 Jobs Available</div>
+                </div>
+                <span class="platform-arrow">›</span>
+            </div>
+            <div class="platform-card">
+                <span class="platform-icon">💼</span>
+                <div>
+                    <div class="platform-title">Business</div>
+                    <div class="platform-jobs">31 Jobs Available</div>
+                </div>
+                <span class="platform-arrow">›</span>
+            </div>
+            <div class="platform-card">
+                <span class="platform-icon">🔗</span>
+                <div>
+                    <div class="platform-title">Management</div>
+                    <div class="platform-jobs">52 Jobs Available</div>
+                </div>
+                <span class="platform-arrow">›</span>
+            </div>
+            <div class="platform-card">
+                <span class="platform-icon">💰</span>
+                <div>
+                    <div class="platform-title">Finance</div>
+                    <div class="platform-jobs">80 Jobs Available</div>
+                </div>
+                <span class="platform-arrow">›</span>
+            </div>
+        </div>
+    </div>
+   
+    <div class="featured-section">
+        <div class="featured-header">
+            <h2>Featured job Circulars</h2>
+        </div>
+        <div class="featured-grid">
+            <!-- Card 1 -->
+            <div class="featured-card">
+                <div class="featured-card-top">
+                    <div>
+                        <div class="featured-job-title">Senior UI Designer</div>
+                        <div class="featured-company">
+                            Microsoft <span class="verified">✔</span>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="featured-logo" />
+                </div>
+                <div class="featured-desc">
+                    Take advantage of a rare opportunity to start from the ground up and build..
+                </div>
+                <div class="featured-meta">
+                    <span>📍 Glendale, CA</span>
+                    <span>💼 Full-time</span>
+                </div>
+                <div class="featured-bottom">
+                    <div>
+                        <div class="featured-salary">$20K</div>
+                        <div class="featured-salary-label">Monthly</div>
+                    </div>
+                    <button class="featured-apply">Apply Now</button>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="featured-card">
+                <div class="featured-card-top">
+                    <div>
+                        <div class="featured-job-title">Product Designer</div>
+                        <div class="featured-company">
+                            Behance <span class="verified">✔</span>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="featured-logo" />
+                </div>
+                <div class="featured-desc">
+                    The Sr Product Designer will be responsible for creating production assets..
+                </div>
+                <div class="featured-meta">
+                    <span>📍 Andover, MA</span>
+                    <span>💼 Remote</span>
+                </div>
+                <div class="featured-bottom">
+                    <div>
+                        <div class="featured-salary">$25K</div>
+                        <div class="featured-salary-label">Monthly</div>
+                    </div>
+                    <button class="featured-apply featured-apply--primary">Apply Now</button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="featured-card">
+                <div class="featured-card-top">
+                    <div>
+                        <div class="featured-job-title">Marketing Officer</div>
+                        <div class="featured-company">
+                            Mail-chimp <span class="verified">✔</span>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="featured-logo" />
+                </div>
+                <div class="featured-desc">
+                    The Marketing Manager will work as part of a global, cross-functional team that creates
+                </div>
+                <div class="featured-meta">
+                    <span>📍 Weston, MA</span>
+                    <span>💼 Full-time</span>
+                </div>
+                <div class="featured-bottom">
+                    <div>
+                        <div class="featured-salary">$15K</div>
+                        <div class="featured-salary-label">Monthly</div>
+                    </div>
+                    <button class="featured-apply">Apply Now</button>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="featured-card">
+                <div class="featured-card-top">
+                    <div>
+                        <div class="featured-job-title">App development</div>
+                        <div class="featured-company">
+                            Airbnb <span class="verified">✔</span>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg" alt="Airbnb" class="featured-logo" />
+                </div>
+                <div class="featured-desc">
+                    The primary responsibility of the Player Development Executive is to effectively...
+                </div>
+                <div class="featured-meta">
+                    <span>📍 Indio, CA</span>
+                    <span>💼 Full-time</span>
+                </div>
+                <div class="featured-bottom">
+                    <div>
+                        <div class="featured-salary">$30K</div>
+                        <div class="featured-salary-label">Monthly</div>
+                    </div>
+                    <button class="featured-apply">Apply Now</button>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="featured-card">
+                <div class="featured-card-top">
+                    <div>
+                        <div class="featured-job-title">UX Engineer</div>
+                        <div class="featured-company">
+                            Discord <span class="verified">✔</span>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" class="featured-logo" />
+                </div>
+                <div class="featured-desc">
+                    Our enterprise client has an immediate opening for a User Experience Consultant
+                </div>
+                <div class="featured-meta">
+                    <span>📍 New York, NY</span>
+                    <span>💼 Remote</span>
+                </div>
+                <div class="featured-bottom">
+                    <div>
+                        <div class="featured-salary">$28K</div>
+                        <div class="featured-salary-label">Monthly</div>
+                    </div>
+                    <button class="featured-apply">Apply Now</button>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="featured-card">
+                <div class="featured-card-top">
+                    <div>
+                        <div class="featured-job-title">Data Verification</div>
+                        <div class="featured-company">
+                            DriversEd <span class="verified">✔</span>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/DriversEd.com_logo.png" alt="DriversEd" class="featured-logo" />
+                </div>
+                <div class="featured-desc">
+                    Cleveland-Cliffs has an opportunity for a Research Data Analytics Intern...
+                </div>
+                <div class="featured-meta">
+                    <span>📍 Middletown, OH</span>
+                    <span>💼 Full-time</span>
+                </div>
+                <div class="featured-bottom">
+                    <div>
+                        <div class="featured-salary">$18K</div>
+                        <div class="featured-salary-label">Monthly</div>
+                    </div>
+                    <button class="featured-apply">Apply Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="featured-footer">
+            <button class="featured-more-btn">Find More Jobs</button>
+        </div>
+    </div>
+
+    <div class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Never Want to Miss Any<br>Job News?</h2>
+            <p>
+                Subscribe to say up-to-date on insights, events and new solutions.<br>
+                You can unsubscribe at any time.
+            </p>
+            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                <input type="email" placeholder="Enter your address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            alert('Subscribed with: ' + email);
+            event.target.reset();
+        }
+    </script>
+    <footer class="footer-main-row">
+      <div class="footer-main-content">
+        <div class="footer-logo">
+          <span class="logo-icon">W</span>
+          <span class="logo-text">AZIFA</span>
+        </div>
+        <div class="footer-links">
+          <div>
+            <a href="#">About</a>
+            <a href="#">Press</a>
+            <a href="#">Partners Relations</a>
+            <a href="#">Blog</a>
+          </div>
+          <div>
+            <a href="#">Jobs</a>
+            <a href="#">Job Referrals</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Help</a>
+          </div>
+          <div>
+            <a href="#">Careers</a>
+            <a href="#">Blog</a>
+            <a href="#">Help & Support</a>
+            <a href="#">Affiliate</a>
+          </div>
+          <div>
+            <a href="#">Terms</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <footer class="footer">
+        <hr class="footer-divider">
+        <div class="footer-bottom-row">
+            <div class="footer-social-icons">
+                <a href="#" class="footer-icon"><span class="iconify" data-icon="mdi:facebook"></span></a>
+                <a href="#" class="footer-icon"><span class="iconify" data-icon="mdi:instagram"></span></a>
+                <a href="#" class="footer-icon active"><span class="iconify" data-icon="mdi:twitter"></span></a>
+                <a href="#" class="footer-icon"><span class="iconify" data-icon="mdi:linkedin"></span></a>
+                <a href="#" class="footer-icon"><span class="iconify" data-icon="mdi:youtube"></span></a>
+            </div>
+            <div class="footer-bottom-links">
+                <a href="#">Terms & Condition</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Support</a>
+            </div>
+            <div class="footer-copyright">
+                ©copyright Artiflow. All Rights Reserved
+            </div>
+        </div>
+    </footer>
+    <!-- Iconify for icons -->
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+</body>
+</html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
