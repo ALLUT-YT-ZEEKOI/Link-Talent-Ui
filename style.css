@@ -225,7 +225,7 @@
         .platform-section {
             background: #eaf3f6;
             padding: 48px 0 56px 0;
-            margin-top: 60px;
+            margin: 45px auto 0 auto;
         }
         .platform-header {
             display: flex;
@@ -375,8 +375,8 @@
             }
         }
         .newsletter-section {
+            margin: 0px auto 0 auto;
             max-width: 1200px;
-            margin: 60px auto 40px auto;
             background: #08545a;
             border-radius: 36px;
             padding: 56px 24px 48px 24px;
@@ -451,7 +451,7 @@
         }
         .featured-section {
             max-width: 1300px;
-            margin: 60px auto 0 auto;
+            margin: 45px auto 0 auto;
             padding: 0 32px 48px 32px;
         }
         .featured-header h2 {
@@ -762,8 +762,7 @@
         }
         .footer {
             background: #fff;
-            margin-top: 60px;
-            padding: 0 0 24px 0;
+            padding: 0 0 0px0;
             font-family: 'Montserrat', Arial, sans-serif;
         }
         .footer-main {
@@ -983,6 +982,7 @@
           background: #fff;
           padding: 0;
           font-family: 'Montserrat', Arial, sans-serif;
+          margin-top: 77px;
         }
         .footer-main-content {
           display: flex;
