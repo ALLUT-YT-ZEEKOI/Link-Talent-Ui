@@ -236,9 +236,9 @@
             padding: 0 32px;
         }
         .platform-header h2 {
-            font-size: 2.5rem;
+            font-size: 25px;
             color: #003944;
-            font-weight: 700;
+            font-weight: bold;
             margin: 0;
         }
         .platform-header h2 span {
@@ -301,13 +301,13 @@
             color: #003944 !important;
         }
         .platform-title {
-            font-weight: 700;
+            font-weight: bold;
             color: #003944;
-            font-size: 1.15rem;
+            font-size: 15px;
         }
         .platform-jobs {
             color: #6a7a7d;
-            font-size: 1rem;
+            font-size: 15px;
             margin-top: 2px;
         }
         .platform-arrow {
@@ -390,14 +390,14 @@
             background-size: 40px 40px;
         }
         .newsletter-content h2 {
-            font-size: 2.5rem;
+            font-size: 25px;
             font-weight: 700;
             margin-bottom: 18px;
             color: #fff;
         }
         .newsletter-content p {
             color: #c7e3e6;
-            font-size: 1.1rem;
+            font-size: 15px;
             margin-bottom: 32px;
             line-height: 1.5;
         }
@@ -414,7 +414,7 @@
             padding: 16px 20px;
             border: none;
             border-radius: 32px 0 0 32px;
-            font-size: 1.1rem;
+            font-size: 15px;
             outline: none;
             min-width: 0;
         }
@@ -424,8 +424,8 @@
             border: none;
             border-radius: 0 32px 32px 0;
             padding: 16px 36px;
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
             transition: background 0.2s;
         }
@@ -455,9 +455,9 @@
             padding: 0 32px 48px 32px;
         }
         .featured-header h2 {
-            font-size: 2.5rem;
+            font-size: 25px;
             color: #003944;
-            font-weight: 700;
+            font-weight: bold;
             margin-bottom: 32px;
         }
         .featured-grid {
@@ -486,8 +486,8 @@
             margin-bottom: 12px;
         }
         .featured-job-title {
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-size: 18px;
+            font-weight: bold;
             color: #003944;
         }
         .featured-company {
@@ -512,7 +512,7 @@
         }
         .featured-desc {
             color: #444;
-            font-size: 1rem;
+            font-size: 15px;
             margin-bottom: 16px;
             min-height: 40px;
         }
@@ -520,7 +520,7 @@
             display: flex;
             gap: 18px;
             color: #003944;
-            font-size: 1rem;
+            font-size: 15px;
             margin-bottom: 18px;
             align-items: center;
         }
@@ -537,12 +537,12 @@
             gap: 16px;
         }
         .featured-salary {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 23px;
+            font-weight: 600;
             color: #003944;
         }
         .featured-salary-label {
-            font-size: 1rem;
+            font-size: 13px;
             color: #666;
         }
         .featured-apply {
@@ -551,7 +551,7 @@
             color: #003944;
             border-radius: 32px;
             padding: 12px 40px;
-            font-size: 1.1rem;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.2s, color 0.2s;
@@ -575,7 +575,7 @@
             border: none;
             border-radius: 32px;
             padding: 16px 48px;
-            font-size: 1.2rem;
+            font-size: 15px;
             font-weight: 700;
             cursor: pointer;
             box-shadow: 0 2px 8px #e6ff7f44;
@@ -996,8 +996,8 @@
         .footer-logo {
           display: flex;
           align-items: center;
-          font-size: 2rem;
-          font-weight: bold;
+          font-size: 15px;
+          font-weight: normal;
           color: #003944;
           min-width: 180px;
           margin-right: 40px;
@@ -1024,6 +1024,8 @@
           flex: 1;
           justify-content: space-between;
           gap: 60px;
+          font-size: 15px;
+          font-weight: normal;
         }
         .footer-links > div {
           display: flex;
