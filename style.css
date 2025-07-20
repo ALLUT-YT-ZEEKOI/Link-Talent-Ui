@@ -65,17 +65,21 @@
         .register-btn:hover {
             background: #d4f76a;
         }
-        .main-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            position: relative;
-            background-image: url('assets/businessman-2108029_1280.jpg');
-            background-size: cover;
-            background-position: center;
-            min-height: 500px; /* Adjust as needed */
-        }
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 500px;
+    width: 100%;
+    background-color: #f8f8f8;
+    color: #666;
+    background-image:
+        linear-gradient(to right, #e5eaea 1px, transparent 1px),
+        linear-gradient(to bottom, #e5eaea 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-repeat: repeat;
+}
         .main-content::before {
             content: "";
             position: absolute;
@@ -160,8 +164,8 @@
             background: #fff;
             border-radius: 40px;
             box-shadow: 0 2px 16px #e5eaea33;
-            padding: 4px;
-            /* padding: 4px 4px 0px 4px; */
+            /* padding: 4px; */
+            padding: 4px 4px 4px 14px;
             /* width: 600px; */
             max-width: 90vw;
             margin: 0 auto;
@@ -181,7 +185,7 @@
         .search-bar input {
             border: none;
             outline: none;
-            font-size: 1.1rem;
+            font-size: 15px;
             background: transparent;
             flex: 1;
             padding: 12px 0;
@@ -197,7 +201,6 @@
 
         .search-bar .icon {
             color: #003944;
-            font-size: 1.3rem;
             margin-right: 0;
         }
 
@@ -207,8 +210,8 @@
             border: none;
             border-radius: 40px;
             padding: 0 32px;
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
             height: 52px;
             transition: background 0.2s;
@@ -227,11 +230,13 @@
             padding: 48px 0 56px 0;
             margin: 45px auto 0 auto;
         }
+
+
         .platform-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto 32px auto;
             padding: 0 32px;
         }
@@ -258,7 +263,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 28px 32px;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 32px;
         }
@@ -268,9 +273,9 @@
             display: flex;
             align-items: center;
             gap: 18px;
-            padding: 4px 8px 4px 4px;
+            padding: 7px 24px 7px 10px;
             box-shadow: 0 2px 12px #0039440a;
-            font-size: 1.1rem;
+            font-size: 15px;
             transition: box-shadow 0.2s, background 0.2s;
             position: relative;
         }
@@ -375,8 +380,8 @@
             }
         }
         .newsletter-section {
+            max-width: 1300px;
             margin: 0px auto 0 auto;
-            max-width: 1200px;
             background: #08545a;
             border-radius: 36px;
             padding: 56px 24px 48px 24px;
@@ -468,12 +473,12 @@
         .featured-card {
             background: #fff;
             border-radius: 20px;
-            padding: 20px 16px 16px 16px;
             box-shadow: 0 2px 16px #e5eaea33;
             display: flex;
             flex-direction: column;
             border: 2px solid #eaf3f6;
             transition: box-shadow 0.2s, border 0.2s;
+            padding: 20px 26px 20px 26px;
         }
         .featured-card:hover {
             box-shadow: 0 4px 24px #e6ff7f44;
@@ -606,8 +611,8 @@
             }
         }
         .trending-section {
+            max-width: 1300px;
             margin: 45px auto 0 auto;
-            max-width: 1200px;
             padding: 0 32px 48px 32px;
         }
         .trending-header {
@@ -640,7 +645,7 @@
         .trending-card {
             background: #eaf3f6;
             border-radius: 20px;
-            padding: 20px 16px 16px 16px;
+            padding: 20px 26px 20px 26px;
             flex: 1 1 320px;
             min-width: 320px;
             max-width: 370px;
@@ -868,8 +873,8 @@
         }
         .footer-copyright {
             color: #888;
-            font-size: 1rem;
-            margin-top: 4px;
+            font-size: 15px;
+          
         }
         @media (max-width: 900px) {
             .footer-main {
@@ -963,7 +968,7 @@
         }
         .footer-copyright {
             color: #888;
-            font-size: 1.1rem;
+            font-size: 15px;
             white-space: nowrap;
         }
         @media (max-width: 900px) {
