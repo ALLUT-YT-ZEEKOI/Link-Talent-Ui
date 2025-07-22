@@ -1,10 +1,9 @@
      body {
             margin: 0;
-            font-family: 'Montserrat', Arial, sans-serif;
+        font-family: 'Red Hat Display';
             background: #fff;
             min-height: 100vh;
             position: relative;
-          
             background-image: 
                 linear-gradient(to right, #e5eaea1a 1px, transparent 1px),
                 linear-gradient(to bottom, #e5eaea1a 1px, transparent 1px);
