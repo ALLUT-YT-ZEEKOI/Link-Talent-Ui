@@ -9,9 +9,9 @@
             const cardWidth = cards[0].offsetWidth + 20; // 20px gap
             wrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
             
-            // Disable/enable buttons
+          
             leftBtn.disabled = currentIndex === 0;
-            rightBtn.disabled = currentIndex >= cards.length - 3; // Show 3 cards at a time
+            rightBtn.disabled = currentIndex >= cards.length - 3; 
         }
         
         leftBtn.addEventListener('click', () => {
@@ -22,14 +22,14 @@
         });
         
         rightBtn.addEventListener('click', () => {
-            if (currentIndex < cards.length - 3) { // Show 3 cards at a time
+            if (currentIndex < cards.length - 3) { 
                 currentIndex++;
                 updateCarousel();
             }
         });
         
-        // Handle window resize
+       
         window.addEventListener('resize', updateCarousel);
         
-        // Initial setup
+       
         updateCarousel();
