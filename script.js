@@ -1,35 +1,33 @@
-// find job js
-       const wrapper = document.getElementById('latestCardsWrapper');
-        const cards = wrapper.querySelectorAll('.featured-card');
-        const leftBtn = document.getElementById('latestScrollLeft');
-        const rightBtn = document.getElementById('latestScrollRight');
-        let currentIndex = 0;
-        
-        function updateCarousel() {
-            const cardWidth = cards[0].offsetWidth + 20; // 20px gap
-            wrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-            
-          
-            leftBtn.disabled = currentIndex === 0;
-            rightBtn.disabled = currentIndex >= cards.length - 3; 
+
+$(document).ready(function () {
+    const $wrapper = $('.job-card-scroll');
+    const $cards = $wrapper.children('.col-lg-4'); 
+    const $leftBtn = $('#latestScrollLeft');
+    const $rightBtn = $('#latestScrollRight');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const cardWidth = $cards.first().outerWidth(true); 
+        $wrapper.animate({ scrollLeft: currentIndex * cardWidth }, 300);
+
+        $leftBtn.prop('disabled', currentIndex === 0);
+        $rightBtn.prop('disabled', currentIndex >= $cards.length - 3);
+    }
+
+    $leftBtn.on('click', function () {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
         }
-        
-        leftBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        });
-        
-        rightBtn.addEventListener('click', () => {
-            if (currentIndex < cards.length - 3) { 
-                currentIndex++;
-                updateCarousel();
-            }
-        });
-        
-       
-        window.addEventListener('resize', updateCarousel);
-        
-       
-        updateCarousel();
+    });
+
+    $rightBtn.on('click', function () {
+        if (currentIndex < $cards.length - 3) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    $(window).on('resize', updateCarousel);
+    updateCarousel();
+});

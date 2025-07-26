@@ -3,406 +3,583 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Pilot UI</title> 
-<!-- font family -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-<!-- font family -->
- <!-- icons -->
-<link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-   <!-- icons -->
-  <link rel="stylesheet" href="style.css">
-  </head>
+    <title>Job Pilot UI</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-select-country.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
-     <div class="header " style="margin-bottom: 14px;">
-        <div class="logo">
-            <div class="logo-icon">W</div>
-            AZIFAa
-        </div>
-        <nav class="nav">
-            <a href="#" class="active">Home</a>
-            <a href="find_job.html">Find Jobs</a>
-            <a href="#">Job Alerts</a>
-            <a href="#">Find Candidates</a>
-            <a href="#">Career Advice</a>
-        </nav>
-        <button class="register-btn">Register Now</button>
-    </div>
-    <div class="main-content">
-        <div class="center-content">
-            <div class="headline">Get The Right Job<br>You Deserve</div>
-            <div class="subheadline">1,80,570 jobs listed here! Your dream jobs is waiting.</div>
-            <form class="search-bar">
-                <div class="search-field">
-                    <span class="icon">
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                            <circle cx="10" cy="10" r="7" stroke="#3B82F6" stroke-width="2" fill="#A7F3D0"/>
-                            <line x1="16" y1="16" x2="21" y2="21" stroke="#9333EA" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </span>
-                    <input type="text" placeholder="Job title or keyword">
+    <!-- Header -->
+    <header class="header container py-3">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
+                <div class="logo">
+                    <div class="logo-icon">W</div>
+                    AZIFAa
                 </div>
-                <div class="divider"></div>
-                <div class="search-field">
-                    <span class="icon">
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                            <ellipse cx="11" cy="8" rx="5" ry="6" fill="#F87171"/>
-                            <circle cx="11" cy="8" r="2" fill="#fff"/>
-                            <rect x="10" y="14" width="2" height="6" rx="1" fill="#F87171"/>
-                        </svg>
-                    </span>
-                    <input type="text" placeholder="New York, USA">
+            </div>
+            <div class="col-lg-6 col-md-12 mb-3 mb-md-0">
+                <nav class="nav nav-pills justify-content-center">
+                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link" href="find_job.html">Find Jobs</a>
+                    <a class="nav-link" href="#">Job Alerts</a>
+                    <a class="nav-link" href="#">Find Candidates</a>
+                    <a class="nav-link" href="#">Career Advice</a>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-6 text-lg-end">
+                <button class="register-btn">Register Now</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="headline">Get The Right Job<br>You Deserve</h1>
+                    <p class="subheadline">1,80,570 jobs listed here! Your dream job is waiting.</p>
+                    
+                    <form class="search-bar d-flex flex-wrap justify-content-between">
+                        <div class="search-field">
+                            <span class="icon">
+                                <i class="bi bi-search text-primary"></i>
+                            </span>
+                            <input type="text" class="form-control border-0 bg-transparent" placeholder="Job title or keyword">
+                        </div>
+                        
+                        <div class="divider d-none d-md-block"></div>
+                        
+                        <div class="search-field">
+                            <span class="icon">
+                                <i class="bi bi-geo-alt text-primary"></i>
+                            </span>
+                            <input type="text" class="form-control border-0 bg-transparent" placeholder="New York, USA">
+                        </div>
+                        
+                        <button class="search-btn" type="submit">Search</button>
+                    </form>
                 </div>
-                <button class="search-btn" type="submit">Search</button>
-            </form>
+            </div>
         </div>
-    </div>
-        <div class="trending-section">
-        <div class="trending-header">
-            <h2 class="section-header same-font-size">Trending Jobs</h2>
-            <a href="#" class="see-all-jobs">See All Jobs</a>
+    </section>
+
+    <!-- Trending Jobs Section -->
+    <section class="trending-section container py-5">
+        <div class="row align-items-center mb-4">
+            <div class="col-md-6">
+                <h2 class="section-header">Trending Jobs</h2>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="#" class="btn btn-link text-decoration-none see-all-jobs">See All Jobs</a>
+            </div>
         </div>
-        <div class="trending-cards">
+        
+        <div class="row">
             <!-- Card 1 -->
-            <div class="trending-card trending-card--highlight">
-                <div class="trending-card-top">
-                    <div>
-                        <div class="trending-job-title same-font-size">Senior UI Designer</div>
-                        <div class="trending-company same-font-size">
-                            Microsoft <span class="verified">✔</span>
+            <div class="col-md-4 mb-4">
+                <div class="job-card highlight-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Senior UI Designer</h3>
+                            <div class="company">
+                                Microsoft <span class="verified">✔</span>
+                            </div>
                         </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="job-logo">
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="trending-logo" />
-                </div>
-                <div class="trending-desc">
-                    Take advantage of a rare opportunity to start from the ground up and build..
-                </div>
-                <div class="trending-meta">
-                    <span>📍 Glendale, CA</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="trending-bottom">
-                    <div>
-                        <div class="trending-salary">$20K</div>
-                        <div class="trending-salary-label">Monthly</div>
+                    <p class="job-desc">
+                        Take advantage of a rare opportunity to start from the ground up and build...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Glendale, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
                     </div>
-                    <button class="trending-apply">Apply Now</button>
-                </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="trending-card">
-                <div class="trending-card-top">
-                    <div>
-                        <div class="trending-job-title">Product Designer</div>
-                        <div class="trending-company">
-                            Behance <span class="verified">✔</span>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$20K</div>
+                            <div class="salary-label">Monthly</div>
                         </div>
+                        <button class="apply-btn">Apply Now</button>
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="trending-logo" />
-                </div>
-                <div class="trending-desc">
-                    The Sr Product Designer will be responsible for creating production assets..
-                </div>
-                <div class="trending-meta">
-                    <span>📍 Andover, MA</span>
-                    <span>💼 Remote</span>
-                </div>
-                <div class="trending-bottom">
-                    <div>
-                        <div class="trending-salary">$25K</div>
-                        <div class="trending-salary-label">Monthly</div>
-                    </div>
-                    <button class="trending-apply">Apply Now</button>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="trending-card">
-                <div class="trending-card-top">
-                    <div>
-                        <div class="trending-job-title">Marketing Officer</div>
-                        <div class="trending-company">
-                            Mail-chimp <span class="verified">✔</span>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="trending-logo" />
-                </div>
-                <div class="trending-desc">
-                    The Marketing Manager will work as part of a global, cross-functional team that creates
-                </div>
-                <div class="trending-meta">
-                    <span>📍 Weston, MA</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="trending-bottom">
-                    <div>
-                        <div class="trending-salary">$15K</div>
-                        <div class="trending-salary-label">Monthly</div>
-                    </div>
-                    <button class="trending-apply">Apply Now</button>
                 </div>
             </div>
             
+            <!-- Card 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Product Designer</h3>
+                            <div class="company">
+                                Behance <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        The Sr Product Designer will be responsible for creating production assets..
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Andover, MA</span>
+                        <span><i class="bi bi-briefcase"></i> Remote</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$25K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Marketing Officer</h3>
+                            <div class="company">
+                                Mail-chimp <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        The Marketing Manager will work as part of a global, cross-functional team that creates
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Weston, MA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$15K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Section -->
+    <section class="platform-section">
+        <div class="container py-5">
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6">
+                    <h2 class="section-header">One platform - Many Solutions</h2>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="btn btn-link text-decoration-none see-all">See All Platform</a>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-megaphone"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Marketing</div>
+                            <div class="platform-jobs">58 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Development</div>
+                            <div class="platform-jobs">48 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card active">
+                        <span class="platform-icon">
+                            <i class="bi bi-brush"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">UI/UX Design</div>
+                            <div class="platform-jobs">78 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-people"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Human Research</div>
+                            <div class="platform-jobs">120 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Security</div>
+                            <div class="platform-jobs">90 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-briefcase"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Business</div>
+                            <div class="platform-jobs">31 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Management</div>
+                            <div class="platform-jobs">52 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-cash-coin"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Finance</div>
+                            <div class="platform-jobs">80 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs Section -->
+    <section class="featured-section container py-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="section-header">Featured job Circulars</h2>
+            </div>
         </div>
         
-    </div>
-   
-    <div class="platform-section">
-        <div class="platform-header">
-            <h2 class="section-header same-font-size">One platform <span>Many Solutions</span></h2>
-            <a href="#" class="see-all">See All Platform</a>
-        </div>
-        <div class="platform-grid">
-            <div class="platform-card">
-                <span class="platform-icon">
-  <span class="iconify" data-icon="mdi:bullhorn-outline"></span>
-</span>
-                <div>
-                    <div class="platform-title">Marketing</div>
-                    <div class="platform-jobs">58 Jobs Available</div>
-                </div>
-                <span class="platform-arrow">›</span>
-            </div>
-            <div class="platform-card">
-                <span class="platform-icon">💻</span>
-                <div>
-                    <div class="platform-title">Development</div>
-                    <div class="platform-jobs">48 Jobs Available</div>
-                </div>
-                <span class="platform-arrow">›</span>
-            </div>
-            <div class="platform-card platform-card--active">
-                <span class="platform-icon platform-icon--active">🖌️</span>
-                <div>
-                    <div class="platform-title">UI/UX Design</div>
-                    <div class="platform-jobs">78 Jobs Available</div>
-                </div>
-                <span class="platform-arrow">›</span>
-            </div>
-            <div class="platform-card">
-                <span class="platform-icon">📅</span>
-                <div>
-                    <div class="platform-title">Human Research</div>
-                    <div class="platform-jobs">120 Jobs Available</div>
-                </div>
-                <span class="platform-arrow">›</span>
-            </div>
-            <div class="platform-card">
-                <span class="platform-icon">🛡️</span>
-                <div>
-                    <div class="platform-title">Security</div>
-                    <div class="platform-jobs">90 Jobs Available</div>
-                </div>
-                <span class="platform-arrow">›</span>
-            </div>
-            <div class="platform-card">
-                <span class="platform-icon">💼</span>
-                <div>
-                    <div class="platform-title">Business</div>
-                    <div class="platform-jobs">31 Jobs Available</div>
-                </div>
-                <span class="platform-arrow">›</span>
-            </div>
-            <div class="platform-card">
-                <span class="platform-icon">🔗</span>
-                <div>
-                    <div class="platform-title">Management</div>
-                    <div class="platform-jobs">52 Jobs Available</div>
-                </div>
-                <span class="platform-arrow">›</span>
-            </div>
-            <div class="platform-card">
-                <span class="platform-icon">💰</span>
-                <div>
-                    <div class="platform-title">Finance</div>
-                    <div class="platform-jobs">80 Jobs Available</div>
-                </div>
-                <span class="platform-arrow">›</span>
-            </div>
-        </div>
-    </div>
-   
-    <div class="featured-section">
-        <div class="featured-header">
-            <h2 class="section-header same-font-size">Featured job Circulars</h2>
-        </div>
-        <div class="featured-grid">
+        <div class="row g-4">
             <!-- Card 1 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title same-font-size">Senior UI Designer</div>
-                        <div class="featured-company same-font-size">
-                            Microsoft <span class="verified">✔</span>
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Senior UI Designer</h3>
+                            <div class="company">
+                                Microsoft <span class="verified">✔</span>
+                            </div>
                         </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="job-logo">
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    Take advantage of a rare opportunity to start from the ground up and build..
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Glendale, CA</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$20K</div>
-                        <div class="featured-salary-label">Monthly</div>
+                    <p class="job-desc">
+                        Take advantage of a rare opportunity to start from the ground up and build...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Glendale, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
                     </div>
-                    <button class="featured-apply">Apply Now</button>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$20K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
                 </div>
             </div>
+            
             <!-- Card 2 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title">Product Designer</div>
-                        <div class="featured-company">
-                            Behance <span class="verified">✔</span>
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Product Designer</h3>
+                            <div class="company">
+                                Behance <span class="verified">✔</span>
+                            </div>
                         </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="job-logo">
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    The Sr Product Designer will be responsible for creating production assets..
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Andover, MA</span>
-                    <span>💼 Remote</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$25K</div>
-                        <div class="featured-salary-label">Monthly</div>
+                    <p class="job-desc">
+                        The Sr Product Designer will be responsible for creating production assets..
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Andover, MA</span>
+                        <span><i class="bi bi-briefcase"></i> Remote</span>
                     </div>
-                    <button class="featured-apply featured-apply--primary">Apply Now</button>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$25K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
                 </div>
             </div>
+            
             <!-- Card 3 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title">Marketing Officer</div>
-                        <div class="featured-company">
-                            Mail-chimp <span class="verified">✔</span>
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Marketing Officer</h3>
+                            <div class="company">
+                                Mail-chimp <span class="verified">✔</span>
+                            </div>
                         </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="job-logo">
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    The Marketing Manager will work as part of a global, cross-functional team that creates
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Weston, MA</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$15K</div>
-                        <div class="featured-salary-label">Monthly</div>
+                    <p class="job-desc">
+                        The Marketing Manager will work as part of a global, cross-functional team that creates
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Weston, MA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
                     </div>
-                    <button class="featured-apply">Apply Now</button>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$15K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
                 </div>
             </div>
+            
             <!-- Card 4 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title">App development</div>
-                        <div class="featured-company">
-                            Airbnb <span class="verified">✔</span>
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">App development</h3>
+                            <div class="company">
+                                Airbnb <span class="verified">✔</span>
+                            </div>
                         </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg" alt="Airbnb" class="job-logo">
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg" alt="Airbnb" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    The primary responsibility of the Player Development Executive is to effectively...
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Indio, CA</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$30K</div>
-                        <div class="featured-salary-label">Monthly</div>
+                    <p class="job-desc">
+                        The primary responsibility of the Player Development Executive is to effectively...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Indio, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
                     </div>
-                    <button class="featured-apply">Apply Now</button>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$30K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
                 </div>
             </div>
+            
             <!-- Card 5 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title">UX Engineer</div>
-                        <div class="featured-company">
-                            Discord <span class="verified">✔</span>
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">UX Engineer</h3>
+                            <div class="company">
+                                Discord <span class="verified">✔</span>
+                            </div>
                         </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" class="job-logo">
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    Our enterprise client has an immediate opening for a User Experience Consultant
-                </div>
-                <div class="featured-meta">
-                    <span>📍 New York, NY</span>
-                    <span>💼 Remote</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$28K</div>
-                        <div class="featured-salary-label">Monthly</div>
+                    <p class="job-desc">
+                        Our enterprise client has an immediate opening for a User Experience Consultant
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> New York, NY</span>
+                        <span><i class="bi bi-briefcase"></i> Remote</span>
                     </div>
-                    <button class="featured-apply">Apply Now</button>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$28K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
                 </div>
             </div>
+            
             <!-- Card 6 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title">Data Verification</div>
-                        <div class="featured-company">
-                            DriversEd <span class="verified">✔</span>
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Data Verification</h3>
+                            <div class="company">
+                                DriversEd <span class="verified">✔</span>
+                            </div>
                         </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/DriversEd.com_logo.png" alt="DriversEd" class="job-logo">
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/DriversEd.com_logo.png" alt="DriversEd" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    Cleveland-Cliffs has an opportunity for a Research Data Analytics Intern...
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Middletown, OH</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$18K</div>
-                        <div class="featured-salary-label">Monthly</div>
+                    <p class="job-desc">
+                        Cleveland-Cliffs has an opportunity for a Research Data Analytics Intern...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Middletown, OH</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
                     </div>
-                    <button class="featured-apply">Apply Now</button>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$18K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="featured-footer">
-            <button class="featured-more-btn">Find More Jobs</button>
+        
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <button class="featured-more-btn">Find More Jobs</button>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="newsletter-section">
-        <div class="newsletter-content">
-            <h2>Never Want to Miss Any<br>Job News?</h2>
-            <p>
-                Subscribe to say up-to-date on insights, events and new solutions.<br>
-                You can unsubscribe at any time.
-            </p>
-            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                <input type="email" placeholder="Enter your address" required>
-                <button type="submit">Subscribe</button>
-            </form>
+    <!-- Newsletter Section -->
+    <section class="newsletter-section container my-5 py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="newsletter-content">
+                    <h2>Never Want to Miss Any<br>Job News?</h2>
+                    <p>
+                        Subscribe to say up-to-date on insights, events and new solutions.<br>
+                        You can unsubscribe at any time.
+                    </p>
+                    <form class="newsletter-form d-flex justify-content-center mt-4">
+                        <input type="email" class="form-control" placeholder="Enter your address" required>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-main-row">
+        <div class="container">
+            <div class="footer-main-content py-5">
+                <div class="row">
+                    <div class="col-lg-3 mb-4 mb-lg-0">
+                        <div class="footer-logo d-flex align-items-center">
+                            <span class="logo-icon">W</span>
+                            <span class="logo-text ms-2">AZIFA</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="row footer-links">
+                            <div class="col-md-3 col-6 mb-4">
+                                <a href="#">About</a>
+                                <a href="#">Press</a>
+                                <a href="#">Partners Relations</a>
+                                <a href="#">Blog</a>
+                            </div>
+                            <div class="col-md-3 col-6 mb-4">
+                                <a href="#">Jobs</a>
+                                <a href="#">Job Referrals</a>
+                                <a href="#">Contact Us</a>
+                                <a href="#">Help</a>
+                            </div>
+                            <div class="col-md-3 col-6 mb-4">
+                                <a href="#">Careers</a>
+                                <a href="#">Blog</a>
+                                <a href="#">Help & Support</a>
+                                <a href="#">Affiliate</a>
+                            </div>
+                            <div class="col-md-3 col-6 mb-4">
+                                <a href="#">Terms</a>
+                                <a href="#">Privacy Policy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="footer-bottom-row py-4">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="footer-social-icons d-flex gap-3">
+                            <a href="#" class="footer-icon"><i class="lni lni-facebook"></i></a>
+                            <a href="#" class="footer-icon"><i class="lni lni-instagram"></i></a>
+                            <a href="#" class="footer-icon active"><i class="lni lni-twitter"></i></a>
+                            <a href="#" class="footer-icon"><i class="lni lni-linkedin"></i></a>
+                            <a href="#" class="footer-icon"><i class="lni lni-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="footer-bottom-links d-flex justify-content-center gap-4">
+                            <a href="#">Terms & Condition</a>
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Support</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <div class="footer-copyright">©copyright Artiflow. All Rights Reserved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/jquery-3.6.0.min.js"></script>
+    <script src="bootstrap/jquery-ui.min.js"></script>
+    <script src="bootstrap/jquery.counterup.min.js"></script>
+    <script src="bootstrap/jquery.scrollUp.min.js"></script>
     <script>
         function subscribeNewsletter(event) {
             event.preventDefault();
@@ -411,62 +588,5 @@
             event.target.reset();
         }
     </script>
-    <footer class="footer-main-row">
-      <div class="footer-main-content">
-        <div class="footer-logo">
-          <span class="logo-icon">W</span>
-          <span class="logo-text">AZIFA</span>
-        </div>
-        <div class="footer-links">
-          <div>
-            <a href="#">About</a>
-            <a href="#">Press</a>
-            <a href="#">Partners Relations</a>
-            <a href="#">Blog</a>
-          </div>
-          <div>
-            <a href="#">Jobs</a>
-            <a href="#">Job Referrals</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Help</a>
-          </div>
-          <div>
-            <a href="#">Careers</a>
-            <a href="#">Blog</a>
-            <a href="#">Help & Support</a>
-            <a href="#">Affiliate</a>
-          </div>
-          <div>
-            <a href="#">Terms</a>
-            <a href="#">Privacy Policy</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <footer class="footer">
-        <hr class="footer-divider">
-        <div class="footer-bottom-row">
-            <div class="footer-social-icons">
-                <a href="#" class="footer-icon"><i class="lni lni-facebook"></i></a>
-                <a href="#" class="footer-icon"><i class="lni lni-instagram"></i></a>
-                <a href="#" class="footer-icon active"><i class="lni lni-twitter"></i></a>
-                <a href="#" class="footer-icon"><i class="lni lni-linkedin"></i></a>
-                <a href="#" class="footer-icon"><i class="lni lni-youtube"></i></a>
-            </div>
-            <div class="footer-bottom-links">
-                <a href="#">Terms & Condition</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Support</a>
-            </div>
-            <div class="footer-copyright">
-                ©copyright Artiflow. All Rights Reserved
-            </div>
-        </div>
-    </footer>
-    <!-- Iconify for icons -->
-    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-</body>
-</html>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

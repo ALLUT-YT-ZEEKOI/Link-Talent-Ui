@@ -3,352 +3,412 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Job</title> 
-<!-- font family -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-<!-- font family -->
-  <link rel="stylesheet" href="style.css">
-  </head>
+    <title>Job Pilot - Find Jobs</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-select-country.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 <body>
-    <!-- Header Section -->
-    <div class="find-job-header">
-        <div class="find-job-title">Find Job</div>
-        <div class="find-job-breadcrumb">
-            <a href="#">Home</a> <span>/</span> <span>Find Job</span>
+
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                <h1 class="page-title">Find Job</h1>
+                <div class="breadcrumb mt-3 mt-md-0">
+                    <a href="#">Home</a> <span class="mx-2">/</span> <span>Find Job</span>
+                </div>
+            </div>
         </div>
-    </div>
-    
+    </section>
+
     <!-- Search Section -->
-    <div class="find-job-search-section">
-        <form class="find-job-search-bar">
-            <div class="find-job-search-field">
-                <i class="lni lni-search-alt search-icon"></i>
-                <input type="text" placeholder="Job Title, Keyword">
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container d-flex align-items-center">
+                <div class="search-field flex-grow-1">
+                    <i class="lni lni-search-alt text-primary me-2"></i>
+                    <input type="text" placeholder="Job Title, Keyword">
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="search-field flex-grow-1">
+                    <i class="lni lni-map-marker text-primary me-2"></i>
+                    <input type="text" placeholder="Enter Location">
+                </div>
+                
+                <button class="btn btn-filter ms-3">
+                    <i class="lni lni-sliders-horizontal me-2"></i> Filter
+                </button>
+                
+                <button class="btn btn-job-search ms-3">
+                    Search Job
+                </button>
             </div>
-            <div class="find-job-divider"></div>
-            <div class="find-job-location-field">
-                <i class="lni lni-map-marker location-icon"></i>
-                <input type="text" placeholder="Enter Location">
+            
+            <div class="tags-section d-flex align-items-center mt-4">
+                <span class="tags-label">Popular Tag:</span>
+                <div>
+                    <a href="#" class="tag-link">Marketing</a>
+                    <a href="#" class="tag-link">Data Scientist</a>
+                    <a href="#" class="tag-link">Frontend</a>
+                    <a href="#" class="tag-link">Cybersecurity Engineer</a>
+                    <a href="#" class="tag-link">Product Manager</a>
+                    <a href="#" class="tag-link">Receptionist</a>
+                    <a href="#" class="tag-link">technology</a>
+                </div>
             </div>
-            <button type="button" class="find-job-filter-btn">
-                <i class="lni lni-sliders-horizontal"></i> Filter
-            </button>
-            <button type="submit" class="find-job-search-btn">
-                Search Job
-            </button>
-        </form>
-        
-        <div class="find-job-tags-row">
-            <span class="find-job-tags-label">Popular Tag:</span>
-            <a href="#">Marketing</a>
-            <a href="#">Data Scientist</a>
-            <a href="#">Frontend</a>
-            <a href="#">Cybersecurity Engineer</a>
-            <a href="#">Product Manager</a>
-            <a href="#">Receptionist</a>
-            <a href="#">technology</a>
+            
+            <div class="divider-line"></div>
         </div>
-        <div class="ctm_line"></div>
-    </div>
-    
+    </section>
+
     <!-- Latest Jobs Section -->
-    <div class="latest-section">
-        <div class="latest-header">
-            <h2>Latest Job</h2>
-            <div class="latest-scroll-btns-row">
-                <button class="latest-scroll-btn left" id="latestScrollLeft">
-                    <i class="lni lni-chevron-left"></i>
-                </button>
-                <button class="latest-scroll-btn right" id="latestScrollRight">
-                    <i class="lni lni-chevron-right"></i>
-                </button>
+    <section class="container">
+        <div class="section-header">
+            <h2 class="section-title">Latest Job</h2>
+            <div class="scroll-buttons">
+              <!-- Update buttons with IDs -->
+<button class="btn" id="latestScrollLeft">
+    <i class="lni lni-chevron-left"></i>
+</button>
+<button class="btn" id="latestScrollRight">
+    <i class="lni lni-chevron-right"></i>
+</button>
+
             </div>
         </div>
         
-        <div class="latest-cards-viewport">
-            <div class="latest-cards-wrapper" id="latestCardsWrapper">
-                <!-- Card 1 -->
-                <div class="featured-card">
-                    <div class="featured-card-top">
+        <div id="latestCardsWrapper" class="job-card-scroll">
+            <!-- Card 1 -->
+         <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
                         <div>
-                            <div class="featured-job-title">Senior UI Designer</div>
-                            <div class="featured-company">
+                            <h3 class="job-title">Senior UI Designer</h3>
+                            <div class="company">
                                 Microsoft <span class="verified">✔</span>
                             </div>
                         </div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="featured-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="job-logo">
                     </div>
-                    <div class="featured-desc">
+                    <p class="job-desc">
                         Take advantage of a rare opportunity to start from the ground up and build...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Glendale, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
                     </div>
-                    <div class="featured-meta">
-                        <span>📍 Glendale, CA</span>
-                        <span>💼 Full-time</span>
-                    </div>
-                    <div class="featured-bottom">
+                    <div class="job-bottom">
                         <div>
-                            <div class="featured-salary">$20K</div>
-                            <div class="featured-salary-label">Monthly</div>
+                            <div class="salary">$20K</div>
+                            <div class="salary-label">Monthly</div>
                         </div>
-                        <button class="featured-apply">Apply Now</button>
+                        <button class="apply-btn">Apply Now</button>
                     </div>
-                </div>
-                
-                <!-- Card 2 -->
-                 <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title same-font-size">Senior UI Designer</div>
-                        <div class="featured-company same-font-size">
-                            Microsoft <span class="verified">✔</span>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    Take advantage of a rare opportunity to start from the ground up and build..
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Glendale, CA</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$20K</div>
-                        <div class="featured-salary-label">Monthly</div>
-                    </div>
-                    <button class="featured-apply">Apply Now</button>
                 </div>
             </div>
-                
-                <!-- Card 3 -->
-                <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title same-font-size">Senior UI Designer</div>
-                        <div class="featured-company same-font-size">
-                            Microsoft <span class="verified">✔</span>
+            
+            <!-- Card 2 -->
+         <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Senior UI Designer</h3>
+                            <div class="company">
+                                Microsoft <span class="verified">✔</span>
+                            </div>
                         </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="job-logo">
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    Take advantage of a rare opportunity to start from the ground up and build..
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Glendale, CA</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$20K</div>
-                        <div class="featured-salary-label">Monthly</div>
+                    <p class="job-desc">
+                        Take advantage of a rare opportunity to start from the ground up and build...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Glendale, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
                     </div>
-                    <button class="featured-apply">Apply Now</button>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$20K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
                 </div>
             </div>
-                
-                <!-- Card 4 -->
-                <div class="featured-card">
-                    <div class="featured-card-top">
+            
+            <!-- Card 3 -->
+         <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
                         <div>
-                            <div class="featured-job-title">App Developer</div>
-                            <div class="featured-company">
+                            <h3 class="job-title">Senior UI Designer</h3>
+                            <div class="company">
+                                Microsoft <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        Take advantage of a rare opportunity to start from the ground up and build...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Glendale, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$20K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+         <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Senior UI Designer</h3>
+                            <div class="company">
+                                Microsoft <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        Take advantage of a rare opportunity to start from the ground up and build...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Glendale, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$20K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </section>
+
+    <!-- Featured Jobs Section -->
+    <section class="featured-section container py-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="section-header">Featured job Circulars</h2>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Senior UI Designer</h3>
+                            <div class="company">
+                                Microsoft <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        Take advantage of a rare opportunity to start from the ground up and build...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Glendale, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$20K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Product Designer</h3>
+                            <div class="company">
+                                Behance <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        The Sr Product Designer will be responsible for creating production assets..
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Andover, MA</span>
+                        <span><i class="bi bi-briefcase"></i> Remote</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$25K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Marketing Officer</h3>
+                            <div class="company">
+                                Mail-chimp <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        The Marketing Manager will work as part of a global, cross-functional team that creates
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Weston, MA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$15K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">App development</h3>
+                            <div class="company">
                                 Airbnb <span class="verified">✔</span>
                             </div>
                         </div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg" alt="Airbnb" class="featured-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg" alt="Airbnb" class="job-logo">
                     </div>
-                    <div class="featured-desc">
+                    <p class="job-desc">
                         The primary responsibility of the Player Development Executive is to effectively...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Indio, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
                     </div>
-                    <div class="featured-meta">
-                        <span>📍 Indio, CA</span>
-                        <span>💼 Full-time</span>
-                    </div>
-                    <div class="featured-bottom">
+                    <div class="job-bottom">
                         <div>
-                            <div class="featured-salary">$30K</div>
-                            <div class="featured-salary-label">Monthly</div>
+                            <div class="salary">$30K</div>
+                            <div class="salary-label">Monthly</div>
                         </div>
-                        <button class="featured-apply">Apply Now</button>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">UX Engineer</h3>
+                            <div class="company">
+                                Discord <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        Our enterprise client has an immediate opening for a User Experience Consultant
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> New York, NY</span>
+                        <span><i class="bi bi-briefcase"></i> Remote</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$28K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Data Verification</h3>
+                            <div class="company">
+                                DriversEd <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/DriversEd.com_logo.png" alt="DriversEd" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        Cleveland-Cliffs has an opportunity for a Research Data Analytics Intern...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Middletown, OH</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$18K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
                     </div>
                 </div>
             </div>
         </div>
         
-    </div>
-   <div class="featured-section">
-        <div class="featured-header">
-            <h2 class="section-header same-font-size">Featured job Circulars</h2>
-        </div>
-        <div class="featured-grid">
-            <!-- Card 1 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title same-font-size">Senior UI Designer</div>
-                        <div class="featured-company same-font-size">
-                            Microsoft <span class="verified">✔</span>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    Take advantage of a rare opportunity to start from the ground up and build..
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Glendale, CA</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$20K</div>
-                        <div class="featured-salary-label">Monthly</div>
-                    </div>
-                    <button class="featured-apply">Apply Now</button>
-                </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title">Product Designer</div>
-                        <div class="featured-company">
-                            Behance <span class="verified">✔</span>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    The Sr Product Designer will be responsible for creating production assets..
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Andover, MA</span>
-                    <span>💼 Remote</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$25K</div>
-                        <div class="featured-salary-label">Monthly</div>
-                    </div>
-                    <button class="featured-apply featured-apply--primary">Apply Now</button>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title">Marketing Officer</div>
-                        <div class="featured-company">
-                            Mail-chimp <span class="verified">✔</span>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    The Marketing Manager will work as part of a global, cross-functional team that creates
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Weston, MA</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$15K</div>
-                        <div class="featured-salary-label">Monthly</div>
-                    </div>
-                    <button class="featured-apply">Apply Now</button>
-                </div>
-            </div>
-            <!-- Card 4 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title">App development</div>
-                        <div class="featured-company">
-                            Airbnb <span class="verified">✔</span>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg" alt="Airbnb" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    The primary responsibility of the Player Development Executive is to effectively...
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Indio, CA</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$30K</div>
-                        <div class="featured-salary-label">Monthly</div>
-                    </div>
-                    <button class="featured-apply">Apply Now</button>
-                </div>
-            </div>
-            <!-- Card 5 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title">UX Engineer</div>
-                        <div class="featured-company">
-                            Discord <span class="verified">✔</span>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    Our enterprise client has an immediate opening for a User Experience Consultant
-                </div>
-                <div class="featured-meta">
-                    <span>📍 New York, NY</span>
-                    <span>💼 Remote</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$28K</div>
-                        <div class="featured-salary-label">Monthly</div>
-                    </div>
-                    <button class="featured-apply">Apply Now</button>
-                </div>
-            </div>
-            <!-- Card 6 -->
-            <div class="featured-card">
-                <div class="featured-card-top">
-                    <div>
-                        <div class="featured-job-title">Data Verification</div>
-                        <div class="featured-company">
-                            DriversEd <span class="verified">✔</span>
-                        </div>
-                    </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/DriversEd.com_logo.png" alt="DriversEd" class="featured-logo" />
-                </div>
-                <div class="featured-desc">
-                    Cleveland-Cliffs has an opportunity for a Research Data Analytics Intern...
-                </div>
-                <div class="featured-meta">
-                    <span>📍 Middletown, OH</span>
-                    <span>💼 Full-time</span>
-                </div>
-                <div class="featured-bottom">
-                    <div>
-                        <div class="featured-salary">$18K</div>
-                        <div class="featured-salary-label">Monthly</div>
-                    </div>
-                    <button class="featured-apply">Apply Now</button>
-                </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <button class="featured-more-btn">Find More Jobs</button>
             </div>
         </div>
-        <div class="featured-footer">
-            <button class="featured-more-btn">Find More Jobs</button>
-        </div>
-    </div>
+    </section>
 
-   
-
-</body>
+       <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/jquery-3.6.0.min.js"></script>
+    <script src="bootstrap/jquery-ui.min.js"></script>
+    <script src="bootstrap/jquery.counterup.min.js"></script>
+    <script src="bootstrap/jquery.scrollUp.min.js"></script>
     <script src="script.js"></script>
+</body>
 </html>
