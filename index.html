@@ -19,54 +19,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <style>.nav-link {
-  color: #000;
-  position: relative;
-  padding-bottom: 5px;
-  background-color: transparent !important;
-  border: none;
-}
 
-/* Common underline effect for hover and active, using two different layers */
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  background-color:  #31960c
-;
-  transition: width 0.3s ease;
-  width: 0%;
-  z-index: 1;
-}
-
-/* Hover underline */
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* Active underline (persistent) using another pseudo-element */
-.nav-link.active::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 100%;
-  background-color: #31960c;
-  z-index: 0;
-}
-
-/* Make sure active text is also blue */
-.nav-pills .nav-link.active {
-  background-color: transparent !important;
-  color: #31960c
- !important;
-}
-
-
-</style>
     <!-- Header -->
     <header class="header container py-3">
         <div class="row align-items-center">
@@ -80,7 +33,7 @@
                 <nav class="nav nav-pills justify-content-center">
                     <a class="nav-link active" href="#">Home</a>
                     <a class="nav-link" href="find_job.html">Find Jobs</a>
-                    <a class="nav-link" href="#">Job Alerts</a>
+                    <a class="nav-link" href="header.html">Header</a>
                     <a class="nav-link" href="#">Find Candidates</a>
                     <a class="nav-link" href="#">Career Advice</a>
                 </nav>
