@@ -19,13 +19,61 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <style>.nav-link {
+  color: #000;
+  position: relative;
+  padding-bottom: 5px;
+  background-color: transparent !important;
+  border: none;
+}
+
+/* Common underline effect for hover and active, using two different layers */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background-color:  #31960c
+;
+  transition: width 0.3s ease;
+  width: 0%;
+  z-index: 1;
+}
+
+/* Hover underline */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active underline (persistent) using another pseudo-element */
+.nav-link.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #31960c;
+  z-index: 0;
+}
+
+/* Make sure active text is also blue */
+.nav-pills .nav-link.active {
+  background-color: transparent !important;
+  color: #31960c
+ !important;
+}
+
+
+</style>
     <!-- Header -->
     <header class="header container py-3">
         <div class="row align-items-center">
             <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
                 <div class="logo">
-                    <div class="logo-icon">W</div>
-                    AZIFAa
+                    <div class="logo-icon"><img width="150px" height="80px" src="assets/Link-Talent-Now-1.png" alt=""></div>
+                
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 mb-3 mb-md-0">
