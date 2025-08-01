@@ -33,7 +33,7 @@
         }
         
         .top-contact i {
-            color: var(--accent-color);
+            color: white;
             margin-right: 5px;
         }
         
@@ -115,9 +115,9 @@
             background:#31960c;
             color: white;
             transform: translateY(-2px);
-            /* box-shadow: 0 4px 12px rgba(26, 86, 219, 0.25); */
+      
         }
-        
+
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(26, 86, 219, 0.9), rgba(15, 46, 106, 0.9)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
@@ -400,6 +400,9 @@
 }
 .platform-card:hover .platform-icon{
     background-color:  #d6f9c9;
+}
+.platform-card:hover .ms-auto{
+    color:  #ffffff;
 }
         
         .platform-card.active {
@@ -916,9 +919,8 @@
         }
         
         .btn-job-search {
-            background: #1769ff;
-            color: #fff;
-            border: none;
+            color: #0980d1;
+            border: 1px solid  #0980d1;
             border-radius: 8px;
             padding: 0 32px;
             font-weight: 700;
@@ -927,7 +929,8 @@
         }
         
         .btn-job-search:hover {
-            background: #0056b3;
+            background:  #0980d1;
+            color: white;
         }
         
         .tags-section {
@@ -984,6 +987,7 @@
         .scroll-buttons .btn:hover {
             background: var(--secondary);
             border-color: var(--secondary);
+            color: white;
         }
         
         .job-card-scroll {
@@ -1080,4 +1084,9 @@
                 margin-bottom: 15px;
             }
         }
-
+.btn-link {
+    font-size: 12px;
+    color: #0980d1;
+    border-radius: 100px;
+    border: 1px solid #0980d1;
+}
