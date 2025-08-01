@@ -102,15 +102,17 @@
         }
         
         .btn-primary {
-            background: var(--primary-color);
+            background: #31960c
+;
             border: none;
             padding: 8px 20px;
             font-weight: 600;
             transition: all 0.3s;
+            border-radius: 135px;
         }
         
         .btn-primary:hover {
-            background: var(--secondary-color);
+            background: #d6f9c9;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(26, 86, 219, 0.25);
         }
