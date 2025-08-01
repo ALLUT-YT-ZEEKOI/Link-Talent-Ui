@@ -51,7 +51,6 @@
         .main-header {
             background: white;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
             top: 0;
             z-index: 1000;
         }
@@ -102,9 +101,10 @@
         }
         
         .btn-primary {
-            background: #31960c
+            background: #ffffff
+;color:  #31960c
 ;
-            border: none;
+            border: 1px solid #31960c;
             padding: 8px 20px;
             font-weight: 600;
             transition: all 0.3s;
@@ -112,9 +112,10 @@
         }
         
         .btn-primary:hover {
-            background: #d6f9c9;
+            background:#31960c;
+            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(26, 86, 219, 0.25);
+            /* box-shadow: 0 4px 12px rgba(26, 86, 219, 0.25); */
         }
         
         /* Hero Section */
@@ -169,14 +170,15 @@
         
         /* Footer */
         .footer {
-            background: var(--secondary-color);
-            color: rgba(255, 255, 255, 0.8);
+            background:white;
+            color: rgba(0, 0, 0, 0.8);
             padding: 60px 0 30px;
             margin-top: 80px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
         
         .footer h5 {
-            color: white;
+            color: rgb(0, 0, 0);
             margin-bottom: 25px;
             font-weight: 700;
         }
@@ -191,7 +193,7 @@
         }
         
         .footer ul li a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(0, 0, 0, 0.7);
             text-decoration: none;
             transition: all 0.3s;
         }
@@ -202,12 +204,12 @@
         }
         
         .copyright {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid  #31960c;
             padding-top: 20px;
             margin-top: 40px;
             text-align: center;
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(0, 0, 0, 0.6);
         }
    
         
