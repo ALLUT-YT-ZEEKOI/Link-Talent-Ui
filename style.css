@@ -100,10 +100,9 @@
             width: 100%;
         }
         
-        .btn-primary {
+        .primaryyyy {
             background: #ffffff
-;color:  #31960c
-;
+;color:  #31960c;
             border: 1px solid #31960c;
             padding: 8px 20px;
             font-weight: 600;
@@ -111,7 +110,7 @@
             border-radius: 135px;
         }
         
-        .btn-primary:hover {
+        .primaryyyy:hover {
             background:#31960c;
             color: white;
             transform: translateY(-2px);
@@ -174,7 +173,7 @@
             color: rgba(0, 0, 0, 0.8);
             padding: 60px 0 30px;
             margin-top: 80px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgb(0 0 0 / 19%);
         }
         
         .footer h5 {
