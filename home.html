@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Pilot UI</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-select-country.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/250x70.png" alt="LinkTalentNow" style="height: 50px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="find_job.html">Find Job</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="candidates.html">Candidates</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="companies_page.html">Company</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog_page.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link notification-icon" href="#" id="notificationIcon" style="display: none;">
+                                <i class="bi bi-bell"></i>
+                                <span class="notification-badge">3</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="jobAlertLink" style="display: none;">Job Alert</a>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <button class="primaryyyy" id="loginLogoutBtn">Login</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner Section with Animated Slideshow -->
+    <section class="hero-banner">
+        <div class="background-slideshow">
+            <div class="background-slide active" style="background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+            <div class="background-slide" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+            <div class="background-slide" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-headline">Find the Right Talent. Faster.</h1>
+            <p class="hero-subtext">Connect with top talent or discover your dream job. LinkTalentNow makes hiring and job searching seamless, efficient, and effective.</p>
+            
+            <div class="hero-cta-buttons">
+                <a href="find_job.html" class="cta-button cta-primary">
+                    <i class="bi bi-search"></i> Find Jobs
+                </a>
+                <a href="#post-job" class="cta-button cta-secondary">
+                    <i class="bi bi-plus-circle"></i> Post a Job
+                </a>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat">
+                    <span class="stat-value">180,570+</span>
+                    <span class="stat-label">Jobs Posted</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">2.5M+</span>
+                    <span class="stat-label">Active Candidates</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">15,000+</span>
+                    <span class="stat-label">Trusted Companies</span>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3 class="feature-title">Search Your Needs</h3>
+                    <p class="feature-description">Web Development, Design, Engineering and more specialized roles.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Popular Jobs</h3>
+                    <p class="feature-description">Designer, Web Developer, Software Engineer, Customer Success</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Tap Categories</h3>
+                    <p class="feature-description">Easily browse jobs by category with our intuitive interface.</p>
+                </div>
+            </div>
+
+            <div class="trusted-by">
+                <p class="trusted-title">Trusted By 500+ Businesses</p>
+                <div class="logos">
+                    <div class="logo">Microsoft</div>
+                    <div class="logo">Google</div>
+                    <div class="logo">Amazon</div>
+                    <div class="logo">Meta</div>
+                    <div class="logo">Apple</div>
+                    <div class="logo">LinkedIn</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Jobs Section -->
+    <section class="trending-section container py-5">
+        <div class="row align-items-center mb-4">
+            <div class="col-md-6">
+                <h2 class="section-header">Trending Jobs</h2>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="#" class="btn btn-link text-decoration-none see-all-jobs">See All Jobs</a>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="job-card highlight-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Senior UI Designer</h3>
+                            <div class="company">
+                                Microsoft <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        Take advantage of a rare opportunity to start from the ground up and build...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Glendale, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$20K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Product Designer</h3>
+                            <div class="company">
+                                Behance <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        The Sr Product Designer will be responsible for creating production assets..
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Andover, MA</span>
+                        <span><i class="bi bi-briefcase"></i> Remote</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$25K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Marketing Officer</h3>
+                            <div class="company">
+                                Mail-chimp <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        The Marketing Manager will work as part of a global, cross-functional team that creates
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Weston, MA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$15K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Section -->
+    <section class="platform-section">
+        <div class="container py-5">
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6">
+                    <h2 class="section-header">One platform - Many Solutions</h2>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="btn btn-link text-decoration-none see-all">See All Platform</a>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-megaphone"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Marketing</div>
+                            <div class="platform-jobs">58 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Development</div>
+                            <div class="platform-jobs">48 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card active">
+                        <span class="platform-icon">
+                            <i class="bi bi-brush"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">UI/UX Design</div>
+                            <div class="platform-jobs">78 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-people"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Human Research</div>
+                            <div class="platform-jobs">120 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Security</div>
+                            <div class="platform-jobs">90 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-briefcase"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Business</div>
+                            <div class="platform-jobs">31 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Management</div>
+                            <div class="platform-jobs">52 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="platform-card">
+                        <span class="platform-icon">
+                            <i class="bi bi-cash-coin"></i>
+                        </span>
+                        <div>
+                            <div class="platform-title">Finance</div>
+                            <div class="platform-jobs">80 Jobs Available</div>
+                        </div>
+                        <span class="ms-auto">›</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Employers Section -->
+    <section class="featured-employers-section">
+        <div class="featured-employers-container">
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h2 class="section-header">Featured Employers</h2>
+                    <p class="text-muted">Join thousands of companies hiring through LinkTalentNow</p>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-center g-4">
+                <div class="col-6 col-md-2">
+                    <div class="employer-logo-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="employer-logo-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="employer-logo-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="employer-logo-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="employer-logo-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Meta">
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="employer-logo-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/LinkedIn_Logo.svg" alt="LinkedIn">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="section-header">What is LinkTalentNow?</h2>
+                <p class="about-text">
+                    LinkTalentNow is your trusted partner in connecting exceptional talent with outstanding opportunities. 
+                    We simplify the hiring process for employers and empower job seekers to find roles that align with 
+                    their skills and aspirations.
+                </p>
+                <p class="about-text">
+                    With cutting-edge technology and a commitment to excellence, we've revolutionized the way companies 
+                    and candidates connect, making recruitment faster, smarter, and more effective.
+                </p>
+                <div class="about-stats mt-4">
+                    <div class="stat-item">
+                        <i class="bi bi-briefcase-fill"></i>
+                        <div>
+                            <h3 class="stat-number">180,570+</h3>
+                            <p class="stat-label">Jobs Posted</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="bi bi-people-fill"></i>
+                        <div>
+                            <h3 class="stat-number">2.5M+</h3>
+                            <p class="stat-label">Active Candidates</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="bi bi-building"></i>
+                        <div>
+                            <h3 class="stat-number">15,000+</h3>
+                            <p class="stat-label">Companies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Team collaboration" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs Section -->
+    <section class="featured-section container py-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="section-header">Featured job Circulars</h2>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Senior UI Designer</h3>
+                            <div class="company">
+                                Microsoft <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        Take advantage of a rare opportunity to start from the ground up and build...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Glendale, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$20K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Product Designer</h3>
+                            <div class="company">
+                                Behance <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        The Sr Product Designer will be responsible for creating production assets..
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Andover, MA</span>
+                        <span><i class="bi bi-briefcase"></i> Remote</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$25K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Marketing Officer</h3>
+                            <div class="company">
+                                Mail-chimp <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        The Marketing Manager will work as part of a global, cross-functional team that creates
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Weston, MA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$15K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">App development</h3>
+                            <div class="company">
+                                Airbnb <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg" alt="Airbnb" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        The primary responsibility of the Player Development Executive is to effectively...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Indio, CA</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$30K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">UX Engineer</h3>
+                            <div class="company">
+                                Discord <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        Our enterprise client has an immediate opening for a User Experience Consultant
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> New York, NY</span>
+                        <span><i class="bi bi-briefcase"></i> Remote</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$28K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="job-card">
+                    <div class="job-card-top">
+                        <div>
+                            <h3 class="job-title">Data Verification</h3>
+                            <div class="company">
+                                DriversEd <span class="verified">✔</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/DriversEd.com_logo.png" alt="DriversEd" class="job-logo">
+                    </div>
+                    <p class="job-desc">
+                        Cleveland-Cliffs has an opportunity for a Research Data Analytics Intern...
+                    </p>
+                    <div class="job-meta">
+                        <span><i class="bi bi-geo-alt"></i> Middletown, OH</span>
+                        <span><i class="bi bi-briefcase"></i> Full-time</span>
+                    </div>
+                    <div class="job-bottom">
+                        <div>
+                            <div class="salary">$18K</div>
+                            <div class="salary-label">Monthly</div>
+                        </div>
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <button class="featured-more-btn">Find More Jobs</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h2 class="section-header">What Our Users Say</h2>
+                    <p class="text-muted">Real stories from candidates and employers who found success with LinkTalentNow</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "LinkTalentNow made my job search incredibly easy. Within two weeks, I landed my dream role 
+                            as a UI Designer at Microsoft. The platform is intuitive and the job matches were spot on!"
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://i.pravatar.cc/60?img=1" alt="Sarah Johnson" class="author-avatar">
+                            <div>
+                                <h6 class="author-name">Sarah Johnson</h6>
+                                <p class="author-title">UI Designer at Microsoft</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "As a hiring manager, this platform has saved us countless hours. We've hired 5 exceptional 
+                            candidates in the past 3 months. The talent pool is diverse and highly qualified."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://i.pravatar.cc/60?img=5" alt="Michael Chen" class="author-avatar">
+                            <div>
+                                <h6 class="author-name">Michael Chen</h6>
+                                <p class="author-title">HR Director at Amazon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "The best job platform I've used! The search filters are powerful, and the application 
+                            process is seamless. I highly recommend it to any professional looking for new opportunities."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://i.pravatar.cc/60?img=9" alt="Emily Rodriguez" class="author-avatar">
+                            <div>
+                                <h6 class="author-name">Emily Rodriguez</h6>
+                                <p class="author-title">Marketing Manager at Google</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Highlights Section -->
+    <section class="blog-highlights-section container py-5">
+        <div class="row align-items-center mb-4">
+            <div class="col-md-6">
+                <h2 class="section-header">Career Tips & Insights</h2>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="blog_page.html" class="btn btn-link text-decoration-none see-all-jobs">View All Articles</a>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="blog-highlight-card">
+                    <div class="blog-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Resume Tips" class="blog-highlight-image">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Career Advice</span>
+                        <h4 class="blog-highlight-title">10 Resume Tips to Land Your Dream Job in 2025</h4>
+                        <p class="blog-excerpt">
+                            Learn the essential strategies to craft a resume that stands out to recruiters and 
+                            passes through ATS systems.
+                        </p>
+                        <a href="#" class="blog-read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-highlight-card">
+                    <div class="blog-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interview Tips" class="blog-highlight-image">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Interview Prep</span>
+                        <h4 class="blog-highlight-title">Mastering the Virtual Interview: A Complete Guide</h4>
+                        <p class="blog-excerpt">
+                            Navigate remote interviews with confidence. Discover best practices for virtual 
+                            interview success.
+                        </p>
+                        <a href="#" class="blog-read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-highlight-card">
+                    <div class="blog-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Career Growth" class="blog-highlight-image">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Career Growth</span>
+                        <h4 class="blog-highlight-title">How to Negotiate Your Salary Like a Pro</h4>
+                        <p class="blog-excerpt">
+                            Unlock the secrets to successful salary negotiations and secure the compensation 
+                            you deserve.
+                        </p>
+                        <a href="#" class="blog-read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section container my-5 py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="newsletter-content">
+                    <h2>Get Job Alerts & Updates<br>Straight to Your Inbox</h2>
+                    <p>
+                        Subscribe to stay up-to-date on the latest job openings, career insights, and industry news.<br>
+                        Join thousands of professionals who never miss an opportunity.
+                    </p>
+                    <form class="newsletter-form d-flex justify-content-center mt-4" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" class="form-control" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-main-row">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <img src="assets/250x70.png" alt="LinkTalentNow" style="height: 50px;" class="mb-3">
+                    <p class="text-muted">
+                        Connecting exceptional talent with outstanding opportunities. Your trusted partner in recruitment.
+                    </p>
+                    <div class="footer-social mt-3">
+                        <a href="#" class="footer-icon me-2"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="footer-icon me-2"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="footer-icon me-2"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="footer-icon me-2"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>For Candidates</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Browse Jobs</a></li>
+                        <li><a href="#">Companies</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                        <li><a href="#">Resume Builder</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>For Employers</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Post a Job</a></li>
+                        <li><a href="#">Browse Candidates</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-divider my-4">
+            <div class="row">
+                <div class="col-12 text-center footer-copyright">
+                    <p class="mb-0">&copy; 2025 LinkTalentNow. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/jquery-3.6.0.min.js"></script>
+    <script src="bootstrap/jquery-ui.min.js"></script>
+    <script src="bootstrap/jquery.counterup.min.js"></script>
+    <script src="bootstrap/jquery.scrollUp.min.js"></script>
+    <script>
+        // Check login status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            updateLoginState(isLoggedIn);
+        });
+
+        // Login/Logout functionality
+        document.getElementById('loginLogoutBtn').addEventListener('click', function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            
+            if (isLoggedIn) {
+                // Logout
+                localStorage.setItem('isLoggedIn', 'false');
+                updateLoginState(false);
+                alert('You have been logged out successfully!');
+            } else {
+                // Login (simulate login)
+                localStorage.setItem('isLoggedIn', 'true');
+                updateLoginState(true);
+                alert('Welcome back! You are now logged in.');
+            }
+        });
+
+        function updateLoginState(isLoggedIn) {
+            const loginBtn = document.getElementById('loginLogoutBtn');
+            const notificationIcon = document.getElementById('notificationIcon');
+            const jobAlertLink = document.getElementById('jobAlertLink');
+            
+            if (isLoggedIn) {
+                loginBtn.textContent = 'Logout';
+                notificationIcon.style.display = 'block';
+                jobAlertLink.style.display = 'block';
+            } else {
+                loginBtn.textContent = 'Login';
+                notificationIcon.style.display = 'none';
+                jobAlertLink.style.display = 'none';
+            }
+        }
+
+        // Newsletter subscription
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            alert('Thank you for subscribing! We\'ll send job alerts to: ' + email);
+            event.target.reset();
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Background image slideshow rotation
+        const slides = document.querySelectorAll('.background-slide');
+        let currentSlide = 0;
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Change background every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // CTA Button hover effects
+        const ctaButtons = document.querySelectorAll('.cta-button');
+        
+        ctaButtons.forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add subtle pulse animation to stats
+        const stats = document.querySelectorAll('.stat-value');
+        stats.forEach(stat => {
+            setInterval(() => {
+                stat.classList.toggle('pulse');
+            }, 3000);
+        });
+
+        // Feature cards hover effect
+        const featureCards = document.querySelectorAll('.feature-card');
+        featureCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

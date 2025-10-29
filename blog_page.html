@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Pilot UI</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-select-country.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <!-- Blog Content -->
+    <div class="container py-5">
+        <div class="row">
+            <!-- Left Sidebar -->
+            <div class="col-lg-4">
+                <div class="blog-sidebar">
+                    <!-- Search Section -->
+                    <div class="mb-5">
+                        <h5 class="sidebar-title">Search</h5>
+                        <div class="position-relative">
+                            <input type="text" class="search-input" placeholder="Search">
+                            <i class="fas fa-search position-absolute" style="right: 12px; top: 50%; transform: translateY(-50%); color: #999;"></i>
+                        </div>
+                    </div>
+
+                    <!-- Category Section -->
+                    <div class="mb-5">
+                        <h5 class="sidebar-title">Category</h5>
+                        <div class="category-checkbox">
+                            <input type="checkbox" id="career-dev">
+                            <label for="career-dev">Career Development</label>
+                        </div>
+                        <div class="category-checkbox">
+                            <input type="checkbox" id="productivity">
+                            <label for="productivity">Workplace Productivity</label>
+                        </div>
+                        <div class="category-checkbox">
+                            <input type="checkbox" id="remote-work">
+                            <label for="remote-work">Remote Work & Future Trends</label>
+                        </div>
+                        <div class="category-checkbox">
+                            <input type="checkbox" id="leadership">
+                            <label for="leadership">Leadership & Management</label>
+                        </div>
+                        <div class="category-checkbox">
+                            <input type="checkbox" id="job-search">
+                            <label for="job-search">Job Search Strategies</label>
+                        </div>
+                        <button class="filter-btn">Filter</button>
+                    </div>
+
+                    <!-- Recent Posts Section -->
+                    <div class="mb-5">
+                        <h5 class="sidebar-title">Recent Post</h5>
+                        <div class="recent-post-item">
+                            <div class="recent-post-image placeholder">image</div>
+                            <div class="recent-post-content">
+                                <div class="recent-post-meta">Aug 06, 2025 • 5 Comments</div>
+                                <h6>Vel dolore molestias e...</h6>
+                            </div>
+                        </div>
+                        <div class="recent-post-item">
+                            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80" alt="Cobblestone street" class="recent-post-image">
+                            <div class="recent-post-content">
+                                <div class="recent-post-meta">Aug 06, 2025 • 5 Comments</div>
+                                <h6>Natus quod ullam yoli</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <div class="ps-lg-4">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-post-card">
+                        <div class="d-flex gap-4">
+                            <div class="blog-post-image placeholder">post image</div>
+                            <div class="d-flex flex-column flex-grow-1">
+                                <div class="d-flex align-items-center gap-3 mb-3 text-muted small">
+                                    <span>Aug 06, 2025</span>
+                                    <span>•</span>
+                                    <span>5 Comments</span>
+                                </div>
+                                <h3 class="blog-post-title">Architecto quibusdam dolorem quia porro sunt.</h3>
+                                <p class="blog-post-excerpt">Vel dolore molestias et deserunt quis reprehenderit amet quo exercitationem a ab enim delectus.</p>
+                                <a href="#" class="read-more-link">
+                                    Read more <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="blog-post-card">
+                        <div class="d-flex gap-4">
+                            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cobblestone street" class="blog-post-image">
+                            <div class="d-flex flex-column flex-grow-1">
+                                <div class="d-flex align-items-center gap-3 mb-3 text-muted small">
+                                    <span>Aug 06, 2025</span>
+                                    <span>•</span>
+                                    <span>5 Comments</span>
+                                </div>
+                                <h3 class="blog-post-title">Itaque error et molestias aut.</h3>
+                                <p class="blog-post-excerpt">Natus quod ullam velit est veniam earum facere commodi quas.</p>
+                                <a href="#" class="read-more-link">
+                                    Read more <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="blog-post-card">
+                        <div class="d-flex gap-4">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fishing boat" class="blog-post-image">
+                            <div class="d-flex flex-column flex-grow-1">
+                                <div class="d-flex align-items-center gap-3 mb-3 text-muted small">
+                                    <span>Aug 06, 2025</span>
+                                    <span>•</span>
+                                    <span>5 Comments</span>
+                                </div>
+                                <h3 class="blog-post-title">Voluptatem est mollitia nulla vel.</h3>
+                                <p class="blog-post-excerpt">Eum reiciendis sapiente qui ipsum aut accusamus ad non et dicta rerum eos animi.</p>
+                                <a href="#" class="read-more-link">
+                                    Read more <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-button">
+            <span>👋</span>
+            Chat with us
+        </button>
+        <div class="chat-icon">
+            <i class="fas fa-comments"></i>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
