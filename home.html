@@ -87,6 +87,65 @@
                 </a>
             </div>
 
+            <!-- Hero Search Bar -->
+            <div class="hero-search-container">
+                <form class="hero-search-bar" onsubmit="handleHeroSearch(event)">
+                    <div class="hero-search-field">
+                        <i class="bi bi-search"></i>
+                        <input type="text" id="heroJobKeyword" class="hero-search-input" placeholder="Job title or keyword">
+                    </div>
+                    
+                    <div class="hero-search-divider"></div>
+                    
+                    <div class="hero-search-field">
+                        <i class="bi bi-geo-alt"></i>
+                        <select id="heroLocation" class="hero-search-select">
+                            <option value="">Select Location</option>
+                            <option value="new-york">New York, USA</option>
+                            <option value="los-angeles">Los Angeles, USA</option>
+                            <option value="chicago">Chicago, USA</option>
+                            <option value="san-francisco">San Francisco, USA</option>
+                            <option value="boston">Boston, USA</option>
+                            <option value="seattle">Seattle, USA</option>
+                            <option value="austin">Austin, USA</option>
+                            <option value="denver">Denver, USA</option>
+                            <option value="remote">Remote</option>
+                        </select>
+                    </div>
+                    
+                    <div class="hero-search-divider"></div>
+                    
+                    <div class="hero-search-field">
+                        <i class="bi bi-briefcase"></i>
+                        <select id="heroCategory" class="hero-search-select">
+                            <option value="">Select Category</option>
+                            <option value="it">IT & Software</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="design">UI/UX Design</option>
+                            <option value="sales">Sales</option>
+                            <option value="engineering">Engineering</option>
+                            <option value="finance">Finance</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="management">Management</option>
+                            <option value="customer-service">Customer Service</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="hero-search-button">
+                        <i class="bi bi-search"></i> Search Jobs
+                    </button>
+                </form>
+
+                <!-- Quick Filter Tags -->
+                <div class="hero-quick-filters">
+                    <span class="filter-label">Popular:</span>
+                    <button class="filter-tag" onclick="quickSearch('Web Developer', '')">Web Developer</button>
+                    <button class="filter-tag" onclick="quickSearch('Designer', '')">Designer</button>
+                    <button class="filter-tag" onclick="quickSearch('', 'remote')">Remote Jobs</button>
+                    <button class="filter-tag" onclick="quickSearch('Software Engineer', '')">Software Engineer</button>
+                </div>
+            </div>
+
             <div class="stats-container">
                 <div class="stat">
                     <span class="stat-value">180,570+</span>
@@ -117,236 +176,392 @@
                 </div>
             </div>
 
-            <div class="trusted-by">
-                <p class="trusted-title">Trusted By 500+ Businesses</p>
-                <div class="logos">
-                    <div class="logo">Microsoft</div>
-                    <div class="logo">Google</div>
-                    <div class="logo">Amazon</div>
-                    <div class="logo">Meta</div>
-                    <div class="logo">Apple</div>
-                    <div class="logo">LinkedIn</div>
-                </div>
-            </div>
+         
         </div>
     </section>
 
-    <!-- Trending Jobs Section -->
+    <!-- Trending / Featured Jobs Section with Carousel -->
     <section class="trending-section container py-5">
         <div class="row align-items-center mb-4">
             <div class="col-md-6">
-                <h2 class="section-header">Trending Jobs</h2>
+                <h2 class="section-header">Trending / Featured Jobs</h2>
+                <p class="text-muted mb-0">Discover top opportunities from leading companies</p>
             </div>
             <div class="col-md-6 text-md-end">
-                <a href="#" class="btn btn-link text-decoration-none see-all-jobs">See All Jobs</a>
+                <a href="#" class="btn btn-link text-decoration-none see-all-jobs">See All Jobs <i class="bi bi-arrow-right"></i></a>
             </div>
         </div>
         
-        <div class="row">
-            <!-- Card 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="job-card highlight-card">
-                    <div class="job-card-top">
-                        <div>
-                            <h3 class="job-title">Senior UI Designer</h3>
-                            <div class="company">
-                                Microsoft <span class="verified">✔</span>
+        <div class="job-carousel-wrapper position-relative">
+            <!-- Navigation Arrows -->
+            <button class="carousel-nav-btn carousel-prev" onclick="scrollTrendingCarousel('left')" aria-label="Previous jobs">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="carousel-nav-btn carousel-next" onclick="scrollTrendingCarousel('right')" aria-label="Next jobs">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+            
+            <!-- Carousel Container -->
+            <div class="job-carousel-container" id="trendingJobsCarousel">
+                <div class="job-carousel-track">
+                    <!-- Card 1 - Featured -->
+                    <div class="job-carousel-card">
+                        <div class="job-card highlight-card">
+                            <span class="featured-badge">Featured</span>
+                            <div class="job-card-top">
+                                <div>
+                                    <h3 class="job-title">Senior UI Designer</h3>
+                                    <div class="company">
+                                        Microsoft <span class="verified">✔</span>
+                                    </div>
+                                </div>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="job-logo">
+                            </div>
+                            <p class="job-desc">
+                                Take advantage of a rare opportunity to start from the ground up and build innovative design systems.
+                            </p>
+                            <div class="job-meta">
+                                <span><i class="bi bi-geo-alt"></i> Glendale, CA</span>
+                                <span><i class="bi bi-briefcase"></i> Full-time</span>
+                            </div>
+                            <div class="job-bottom">
+                                <div>
+                                    <div class="salary">$18K - $22K</div>
+                                    <div class="salary-label">Monthly</div>
+                                </div>
+                                <button class="apply-btn">Apply Now</button>
                             </div>
                         </div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="job-logo">
                     </div>
-                    <p class="job-desc">
-                        Take advantage of a rare opportunity to start from the ground up and build...
-                    </p>
-                    <div class="job-meta">
-                        <span><i class="bi bi-geo-alt"></i> Glendale, CA</span>
-                        <span><i class="bi bi-briefcase"></i> Full-time</span>
-                    </div>
-                    <div class="job-bottom">
-                        <div>
-                            <div class="salary">$20K</div>
-                            <div class="salary-label">Monthly</div>
+                    
+                    <!-- Card 2 -->
+                    <div class="job-carousel-card">
+                        <div class="job-card">
+                            <div class="job-card-top">
+                                <div>
+                                    <h3 class="job-title">Product Designer</h3>
+                                    <div class="company">
+                                        Behance <span class="verified">✔</span>
+                                    </div>
+                                </div>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="job-logo">
+                            </div>
+                            <p class="job-desc">
+                                The Sr Product Designer will be responsible for creating production assets and design guidelines.
+                            </p>
+                            <div class="job-meta">
+                                <span><i class="bi bi-geo-alt"></i> Andover, MA</span>
+                                <span><i class="bi bi-briefcase"></i> Remote</span>
+                            </div>
+                            <div class="job-bottom">
+                                <div>
+                                    <div class="salary">$23K - $28K</div>
+                                    <div class="salary-label">Monthly</div>
+                                </div>
+                                <button class="apply-btn">Apply Now</button>
+                            </div>
                         </div>
-                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                    
+                    <!-- Card 3 - Featured -->
+                    <div class="job-carousel-card">
+                        <div class="job-card highlight-card">
+                            <span class="featured-badge">Featured</span>
+                            <div class="job-card-top">
+                                <div>
+                                    <h3 class="job-title">Marketing Officer</h3>
+                                    <div class="company">
+                                        Mailchimp <span class="verified">✔</span>
+                                    </div>
+                                </div>
+                                <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="job-logo">
+                            </div>
+                            <p class="job-desc">
+                                The Marketing Manager will work as part of a global, cross-functional team that creates campaigns.
+                            </p>
+                            <div class="job-meta">
+                                <span><i class="bi bi-geo-alt"></i> Weston, MA</span>
+                                <span><i class="bi bi-briefcase"></i> Full-time</span>
+                            </div>
+                            <div class="job-bottom">
+                                <div>
+                                    <div class="salary">$13K - $17K</div>
+                                    <div class="salary-label">Monthly</div>
+                                </div>
+                                <button class="apply-btn">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="job-carousel-card">
+                        <div class="job-card">
+                            <div class="job-card-top">
+                                <div>
+                                    <h3 class="job-title">Frontend Developer</h3>
+                                    <div class="company">
+                                        Google <span class="verified">✔</span>
+                                    </div>
+                                </div>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="job-logo">
+                            </div>
+                            <p class="job-desc">
+                                Build cutting-edge web applications using modern frameworks and deliver exceptional user experiences.
+                            </p>
+                            <div class="job-meta">
+                                <span><i class="bi bi-geo-alt"></i> San Francisco, CA</span>
+                                <span><i class="bi bi-briefcase"></i> Full-time</span>
+                            </div>
+                            <div class="job-bottom">
+                                <div>
+                                    <div class="salary">$25K - $30K</div>
+                                    <div class="salary-label">Monthly</div>
+                                </div>
+                                <button class="apply-btn">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5 -->
+                    <div class="job-carousel-card">
+                        <div class="job-card">
+                            <div class="job-card-top">
+                                <div>
+                                    <h3 class="job-title">Data Scientist</h3>
+                                    <div class="company">
+                                        Amazon <span class="verified">✔</span>
+                                    </div>
+                                </div>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="job-logo">
+                            </div>
+                            <p class="job-desc">
+                                Analyze complex datasets and develop machine learning models to drive business insights and decisions.
+                            </p>
+                            <div class="job-meta">
+                                <span><i class="bi bi-geo-alt"></i> Seattle, WA</span>
+                                <span><i class="bi bi-briefcase"></i> Full-time</span>
+                            </div>
+                            <div class="job-bottom">
+                                <div>
+                                    <div class="salary">$28K - $35K</div>
+                                    <div class="salary-label">Monthly</div>
+                                </div>
+                                <button class="apply-btn">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6 - Featured -->
+                    <div class="job-carousel-card">
+                        <div class="job-card highlight-card">
+                            <span class="featured-badge">Featured</span>
+                            <div class="job-card-top">
+                                <div>
+                                    <h3 class="job-title">DevOps Engineer</h3>
+                                    <div class="company">
+                                        Meta <span class="verified">✔</span>
+                                    </div>
+                                </div>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Meta" class="job-logo">
+                            </div>
+                            <p class="job-desc">
+                                Manage infrastructure, automate deployments, and ensure scalability of world-class applications.
+                            </p>
+                            <div class="job-meta">
+                                <span><i class="bi bi-geo-alt"></i> Austin, TX</span>
+                                <span><i class="bi bi-briefcase"></i> Remote</span>
+                            </div>
+                            <div class="job-bottom">
+                                <div>
+                                    <div class="salary">$26K - $32K</div>
+                                    <div class="salary-label">Monthly</div>
+                                </div>
+                                <button class="apply-btn">Apply Now</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Card 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="job-card">
-                    <div class="job-card-top">
-                        <div>
-                            <h3 class="job-title">Product Designer</h3>
-                            <div class="company">
-                                Behance <span class="verified">✔</span>
-                            </div>
-                        </div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_Logo.png" alt="Behance" class="job-logo">
-                    </div>
-                    <p class="job-desc">
-                        The Sr Product Designer will be responsible for creating production assets..
-                    </p>
-                    <div class="job-meta">
-                        <span><i class="bi bi-geo-alt"></i> Andover, MA</span>
-                        <span><i class="bi bi-briefcase"></i> Remote</span>
-                    </div>
-                    <div class="job-bottom">
-                        <div>
-                            <div class="salary">$25K</div>
-                            <div class="salary-label">Monthly</div>
-                        </div>
-                        <button class="apply-btn">Apply Now</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Card 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="job-card">
-                    <div class="job-card-top">
-                        <div>
-                            <h3 class="job-title">Marketing Officer</h3>
-                            <div class="company">
-                                Mail-chimp <span class="verified">✔</span>
-                            </div>
-                        </div>
-                        <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Mailchimp_logo.svg" alt="Mailchimp" class="job-logo">
-                    </div>
-                    <p class="job-desc">
-                        The Marketing Manager will work as part of a global, cross-functional team that creates
-                    </p>
-                    <div class="job-meta">
-                        <span><i class="bi bi-geo-alt"></i> Weston, MA</span>
-                        <span><i class="bi bi-briefcase"></i> Full-time</span>
-                    </div>
-                    <div class="job-bottom">
-                        <div>
-                            <div class="salary">$15K</div>
-                            <div class="salary-label">Monthly</div>
-                        </div>
-                        <button class="apply-btn">Apply Now</button>
-                    </div>
-                </div>
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators mt-4" id="trendingCarouselIndicators">
+                <!-- Dynamically generated dots -->
             </div>
         </div>
     </section>
 
-    <!-- Platform Section -->
-    <section class="platform-section">
-        <div class="container py-5">
-            <div class="row align-items-center mb-4">
-                <div class="col-md-6">
-                    <h2 class="section-header">One platform - Many Solutions</h2>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="btn btn-link text-decoration-none see-all">See All Platform</a>
+    <!-- Job Categories Section with 3D Cards -->
+    <section class="categories-section-3d container py-5">
+        <div class="categories-section-header text-center mb-5">
+            <h2 class="categories-section-title">Job Categories</h2>
+            <p class="categories-section-subtitle">Explore opportunities across various industries and find your perfect career path</p>
+        </div>
+
+        <div class="categories-grid-3d">
+            <!-- IT & Technology -->
+            <div class="category-card-3d">
+                <div class="category-card-3d-inner">
+                    <div class="category-icon-3d">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="category-name-3d">IT & Technology</h3>
+                    <div class="category-jobs-3d">
+                        <span>Available Positions</span>
+                        <span class="job-count-3d">1,245</span>
+                    </div>
+                    <p class="category-description-3d">Software development, cybersecurity, data science, and IT infrastructure roles in top tech companies.</p>
+                    <a href="#" class="explore-btn-3d">
+                        Explore Jobs <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-            
-            <div class="row g-4">
-                <div class="col-md-3 col-sm-6">
-                    <div class="platform-card">
-                        <span class="platform-icon">
-                            <i class="bi bi-megaphone"></i>
-                        </span>
-                        <div>
-                            <div class="platform-title">Marketing</div>
-                            <div class="platform-jobs">58 Jobs Available</div>
-                        </div>
-                        <span class="ms-auto">›</span>
+
+            <!-- Marketing -->
+            <div class="category-card-3d">
+                <div class="category-card-3d-inner">
+                    <div class="category-icon-3d">
+                        <i class="fas fa-bullhorn"></i>
                     </div>
+                    <h3 class="category-name-3d">Marketing</h3>
+                    <div class="category-jobs-3d">
+                        <span>Available Positions</span>
+                        <span class="job-count-3d">892</span>
+                    </div>
+                    <p class="category-description-3d">Digital marketing, content strategy, brand management, and social media positions.</p>
+                    <a href="#" class="explore-btn-3d">
+                        Explore Jobs <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="platform-card">
-                        <span class="platform-icon">
-                            <i class="bi bi-code-slash"></i>
-                        </span>
-                        <div>
-                            <div class="platform-title">Development</div>
-                            <div class="platform-jobs">48 Jobs Available</div>
-                        </div>
-                        <span class="ms-auto">›</span>
+            </div>
+
+            <!-- Sales -->
+            <div class="category-card-3d">
+                <div class="category-card-3d-inner">
+                    <div class="category-icon-3d">
+                        <i class="fas fa-chart-line"></i>
                     </div>
+                    <h3 class="category-name-3d">Sales</h3>
+                    <div class="category-jobs-3d">
+                        <span>Available Positions</span>
+                        <span class="job-count-3d">756</span>
+                    </div>
+                    <p class="category-description-3d">Business development, account management, and sales executive roles across industries.</p>
+                    <a href="#" class="explore-btn-3d">
+                        Explore Jobs <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="platform-card active">
-                        <span class="platform-icon">
-                            <i class="bi bi-brush"></i>
-                        </span>
-                        <div>
-                            <div class="platform-title">UI/UX Design</div>
-                            <div class="platform-jobs">78 Jobs Available</div>
-                        </div>
-                        <span class="ms-auto">›</span>
+            </div>
+
+            <!-- Engineering -->
+            <div class="category-card-3d">
+                <div class="category-card-3d-inner">
+                    <div class="category-icon-3d">
+                        <i class="fas fa-cogs"></i>
                     </div>
+                    <h3 class="category-name-3d">Engineering</h3>
+                    <div class="category-jobs-3d">
+                        <span>Available Positions</span>
+                        <span class="job-count-3d">1,543</span>
+                    </div>
+                    <p class="category-description-3d">Mechanical, electrical, civil, and industrial engineering positions with leading firms.</p>
+                    <a href="#" class="explore-btn-3d">
+                        Explore Jobs <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="platform-card">
-                        <span class="platform-icon">
-                            <i class="bi bi-people"></i>
-                        </span>
-                        <div>
-                            <div class="platform-title">Human Research</div>
-                            <div class="platform-jobs">120 Jobs Available</div>
-                        </div>
-                        <span class="ms-auto">›</span>
+            </div>
+
+            <!-- Healthcare -->
+            <div class="category-card-3d">
+                <div class="category-card-3d-inner">
+                    <div class="category-icon-3d">
+                        <i class="fas fa-heartbeat"></i>
                     </div>
+                    <h3 class="category-name-3d">Healthcare</h3>
+                    <div class="category-jobs-3d">
+                        <span>Available Positions</span>
+                        <span class="job-count-3d">1,087</span>
+                    </div>
+                    <p class="category-description-3d">Medical, nursing, pharmaceutical, and healthcare administration roles.</p>
+                    <a href="#" class="explore-btn-3d">
+                        Explore Jobs <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="platform-card">
-                        <span class="platform-icon">
-                            <i class="bi bi-shield-lock"></i>
-                        </span>
-                        <div>
-                            <div class="platform-title">Security</div>
-                            <div class="platform-jobs">90 Jobs Available</div>
-                        </div>
-                        <span class="ms-auto">›</span>
+            </div>
+
+            <!-- Finance -->
+            <div class="category-card-3d">
+                <div class="category-card-3d-inner">
+                    <div class="category-icon-3d">
+                        <i class="fas fa-chart-pie"></i>
                     </div>
+                    <h3 class="category-name-3d">Finance</h3>
+                    <div class="category-jobs-3d">
+                        <span>Available Positions</span>
+                        <span class="job-count-3d">634</span>
+                    </div>
+                    <p class="category-description-3d">Banking, investment, accounting, and financial analysis positions.</p>
+                    <a href="#" class="explore-btn-3d">
+                        Explore Jobs <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="platform-card">
-                        <span class="platform-icon">
-                            <i class="bi bi-briefcase"></i>
-                        </span>
-                        <div>
-                            <div class="platform-title">Business</div>
-                            <div class="platform-jobs">31 Jobs Available</div>
-                        </div>
-                        <span class="ms-auto">›</span>
+            </div>
+
+            <!-- Education -->
+            <div class="category-card-3d">
+                <div class="category-card-3d-inner">
+                    <div class="category-icon-3d">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
+                    <h3 class="category-name-3d">Education</h3>
+                    <div class="category-jobs-3d">
+                        <span>Available Positions</span>
+                        <span class="job-count-3d">521</span>
+                    </div>
+                    <p class="category-description-3d">Teaching, administration, and educational technology roles at all levels.</p>
+                    <a href="#" class="explore-btn-3d">
+                        Explore Jobs <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="platform-card">
-                        <span class="platform-icon">
-                            <i class="bi bi-diagram-3"></i>
-                        </span>
-                        <div>
-                            <div class="platform-title">Management</div>
-                            <div class="platform-jobs">52 Jobs Available</div>
-                        </div>
-                        <span class="ms-auto">›</span>
+            </div>
+
+            <!-- Design -->
+            <div class="category-card-3d">
+                <div class="category-card-3d-inner">
+                    <div class="category-icon-3d">
+                        <i class="fas fa-palette"></i>
                     </div>
+                    <h3 class="category-name-3d">Design</h3>
+                    <div class="category-jobs-3d">
+                        <span>Available Positions</span>
+                        <span class="job-count-3d">478</span>
+                    </div>
+                    <p class="category-description-3d">UI/UX, graphic design, product design, and creative direction positions.</p>
+                    <a href="#" class="explore-btn-3d">
+                        Explore Jobs <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="platform-card">
-                        <span class="platform-icon">
-                            <i class="bi bi-cash-coin"></i>
-                        </span>
-                        <div>
-                            <div class="platform-title">Finance</div>
-                            <div class="platform-jobs">80 Jobs Available</div>
-                        </div>
-                        <span class="ms-auto">›</span>
-                    </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section-3d mt-5">
+            <h3 class="stats-title-3d text-center mb-4">Job Market Overview</h3>
+            <div class="stats-grid-3d">
+                <div class="stat-item-3d">
+                    <div class="stat-value-3d">15,820</div>
+                    <div class="stat-label-3d">Active Jobs</div>
+                </div>
+                <div class="stat-item-3d">
+                    <div class="stat-value-3d">3,450</div>
+                    <div class="stat-label-3d">Companies Hiring</div>
+                </div>
+                <div class="stat-item-3d">
+                    <div class="stat-value-3d">92%</div>
+                    <div class="stat-label-3d">Success Rate</div>
+                </div>
+                <div class="stat-item-3d">
+                    <div class="stat-value-3d">48h</div>
+                    <div class="stat-label-3d">Avg. Response Time</div>
                 </div>
             </div>
         </div>
@@ -633,81 +848,260 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials / Reviews Carousel Section -->
     <section class="testimonials-section">
         <div class="testimonials-container">
-            <div class="row mb-4">
+            <div class="row mb-5">
                 <div class="col-12 text-center">
                     <h2 class="section-header">What Our Users Say</h2>
-                    <p class="text-muted">Real stories from candidates and employers who found success with LinkTalentNow</p>
+                    <p class="text-muted mb-4">Real stories from candidates and employers who found success with LinkTalentNow</p>
+                    <div class="testimonial-tabs">
+                        <button class="testimonial-tab active" onclick="filterTestimonials('all')">
+                            <i class="bi bi-people-fill"></i> All Reviews
+                        </button>
+                        <button class="testimonial-tab" onclick="filterTestimonials('candidate')">
+                            <i class="bi bi-person-check-fill"></i> Candidates
+                        </button>
+                        <button class="testimonial-tab" onclick="filterTestimonials('employer')">
+                            <i class="bi bi-building"></i> Employers
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating mb-3">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+            
+            <div class="testimonials-carousel-wrapper position-relative">
+                <!-- Navigation Arrows -->
+                <button class="testimonial-nav-btn testimonial-prev" onclick="scrollTestimonials('left')" aria-label="Previous testimonials">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="testimonial-nav-btn testimonial-next" onclick="scrollTestimonials('right')" aria-label="Next testimonials">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+                
+                <!-- Carousel Container -->
+                <div class="testimonials-carousel-container" id="testimonialsCarousel">
+                    <div class="testimonials-carousel-track">
+                        <!-- Testimonial 1 - Candidate -->
+                        <div class="testimonial-carousel-item" data-type="candidate">
+                            <div class="testimonial-card">
+                                <span class="testimonial-badge candidate-badge">
+                                    <i class="bi bi-person-check-fill"></i> Candidate
+                                </span>
+                                <div class="testimonial-rating mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "LinkTalentNow made my job search incredibly easy. Within two weeks, I landed my dream role 
+                                    as a UI Designer at Microsoft. The platform is intuitive and the job matches were spot on!"
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://i.pravatar.cc/60?img=1" alt="Sarah Johnson" class="author-avatar">
+                                    <div>
+                                        <h6 class="author-name">Sarah Johnson</h6>
+                                        <p class="author-title">UI Designer at Microsoft</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <p class="testimonial-text">
-                            "LinkTalentNow made my job search incredibly easy. Within two weeks, I landed my dream role 
-                            as a UI Designer at Microsoft. The platform is intuitive and the job matches were spot on!"
-                        </p>
-                        <div class="testimonial-author">
-                            <img src="https://i.pravatar.cc/60?img=1" alt="Sarah Johnson" class="author-avatar">
-                            <div>
-                                <h6 class="author-name">Sarah Johnson</h6>
-                                <p class="author-title">UI Designer at Microsoft</p>
+                        
+                        <!-- Testimonial 2 - Employer -->
+                        <div class="testimonial-carousel-item" data-type="employer">
+                            <div class="testimonial-card">
+                                <span class="testimonial-badge employer-badge">
+                                    <i class="bi bi-building"></i> Employer
+                                </span>
+                                <div class="testimonial-rating mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "As a hiring manager, this platform has saved us countless hours. We've hired 5 exceptional 
+                                    candidates in the past 3 months. The talent pool is diverse and highly qualified."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://i.pravatar.cc/60?img=5" alt="Michael Chen" class="author-avatar">
+                                    <div>
+                                        <h6 class="author-name">Michael Chen</h6>
+                                        <p class="author-title">HR Director at Amazon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 - Candidate -->
+                        <div class="testimonial-carousel-item" data-type="candidate">
+                            <div class="testimonial-card">
+                                <span class="testimonial-badge candidate-badge">
+                                    <i class="bi bi-person-check-fill"></i> Candidate
+                                </span>
+                                <div class="testimonial-rating mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "The best job platform I've used! The search filters are powerful, and the application 
+                                    process is seamless. I highly recommend it to any professional looking for new opportunities."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://i.pravatar.cc/60?img=9" alt="Emily Rodriguez" class="author-avatar">
+                                    <div>
+                                        <h6 class="author-name">Emily Rodriguez</h6>
+                                        <p class="author-title">Marketing Manager at Google</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 4 - Employer -->
+                        <div class="testimonial-carousel-item" data-type="employer">
+                            <div class="testimonial-card">
+                                <span class="testimonial-badge employer-badge">
+                                    <i class="bi bi-building"></i> Employer
+                                </span>
+                                <div class="testimonial-rating mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "Outstanding platform! We've reduced our time-to-hire by 40%. The candidate quality is excellent, 
+                                    and the interface makes screening applications a breeze. Highly recommend for any company."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://i.pravatar.cc/60?img=12" alt="David Martinez" class="author-avatar">
+                                    <div>
+                                        <h6 class="author-name">David Martinez</h6>
+                                        <p class="author-title">CEO at TechStart Inc</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 5 - Candidate -->
+                        <div class="testimonial-carousel-item" data-type="candidate">
+                            <div class="testimonial-card">
+                                <span class="testimonial-badge candidate-badge">
+                                    <i class="bi bi-person-check-fill"></i> Candidate
+                                </span>
+                                <div class="testimonial-rating mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "I switched careers after 10 years, and LinkTalentNow helped me find the perfect role in a new field. 
+                                    The recommendations were tailored to my skills and aspirations. Forever grateful!"
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://i.pravatar.cc/60?img=15" alt="Jennifer Lee" class="author-avatar">
+                                    <div>
+                                        <h6 class="author-name">Jennifer Lee</h6>
+                                        <p class="author-title">Data Scientist at Meta</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 6 - Employer -->
+                        <div class="testimonial-carousel-item" data-type="employer">
+                            <div class="testimonial-card">
+                                <span class="testimonial-badge employer-badge">
+                                    <i class="bi bi-building"></i> Employer
+                                </span>
+                                <div class="testimonial-rating mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "The analytics dashboard is fantastic! We can track our job postings' performance in real-time. 
+                                    The support team is responsive and helped us optimize our hiring strategy."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://i.pravatar.cc/60?img=18" alt="Amanda Foster" class="author-avatar">
+                                    <div>
+                                        <h6 class="author-name">Amanda Foster</h6>
+                                        <p class="author-title">Talent Acquisition Lead at Apple</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 7 - Candidate -->
+                        <div class="testimonial-carousel-item" data-type="candidate">
+                            <div class="testimonial-card">
+                                <span class="testimonial-badge candidate-badge">
+                                    <i class="bi bi-person-check-fill"></i> Candidate
+                                </span>
+                                <div class="testimonial-rating mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "Amazing experience from start to finish! The one-click apply feature saved me so much time. 
+                                    I received multiple interview requests within days. This platform truly works!"
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://i.pravatar.cc/60?img=22" alt="Robert Thompson" class="author-avatar">
+                                    <div>
+                                        <h6 class="author-name">Robert Thompson</h6>
+                                        <p class="author-title">Software Engineer at Netflix</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 8 - Employer -->
+                        <div class="testimonial-carousel-item" data-type="employer">
+                            <div class="testimonial-card">
+                                <span class="testimonial-badge employer-badge">
+                                    <i class="bi bi-building"></i> Employer
+                                </span>
+                                <div class="testimonial-rating mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "As a small business owner, finding the right talent was always challenging. LinkTalentNow leveled 
+                                    the playing field. We've built an amazing team thanks to this platform!"
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://i.pravatar.cc/60?img=25" alt="Lisa Anderson" class="author-avatar">
+                                    <div>
+                                        <h6 class="author-name">Lisa Anderson</h6>
+                                        <p class="author-title">Founder at CreativeHub</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating mb-3">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "As a hiring manager, this platform has saved us countless hours. We've hired 5 exceptional 
-                            candidates in the past 3 months. The talent pool is diverse and highly qualified."
-                        </p>
-                        <div class="testimonial-author">
-                            <img src="https://i.pravatar.cc/60?img=5" alt="Michael Chen" class="author-avatar">
-                            <div>
-                                <h6 class="author-name">Michael Chen</h6>
-                                <p class="author-title">HR Director at Amazon</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating mb-3">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "The best job platform I've used! The search filters are powerful, and the application 
-                            process is seamless. I highly recommend it to any professional looking for new opportunities."
-                        </p>
-                        <div class="testimonial-author">
-                            <img src="https://i.pravatar.cc/60?img=9" alt="Emily Rodriguez" class="author-avatar">
-                            <div>
-                                <h6 class="author-name">Emily Rodriguez</h6>
-                                <p class="author-title">Marketing Manager at Google</p>
-                            </div>
-                        </div>
-                    </div>
+                
+                <!-- Carousel Indicators -->
+                <div class="testimonials-indicators mt-5" id="testimonialsIndicators">
+                    <!-- Dynamically generated dots -->
                 </div>
             </div>
         </div>
@@ -775,20 +1169,51 @@
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter-section container my-5 py-5">
+    <!-- Email Subscription Section -->
+    <section class="email-subscription-section container my-5 py-5">
         <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <div class="newsletter-content">
-                    <h2>Get Job Alerts & Updates<br>Straight to Your Inbox</h2>
-                    <p>
-                        Subscribe to stay up-to-date on the latest job openings, career insights, and industry news.<br>
-                        Join thousands of professionals who never miss an opportunity.
-                    </p>
-                    <form class="newsletter-form d-flex justify-content-center mt-4" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" class="form-control" placeholder="Enter your email address" required>
-                        <button type="submit" class="btn">Subscribe</button>
+            <div class="col-12">
+                <div class="subscription-container">
+                    <div class="floating-element"></div>
+                    <div class="floating-element"></div>
+                    
+                    <div class="subscription-header">
+                        <div class="subscription-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h1 class="subscription-title">Stay Updated with Job Alerts</h1>
+                        <p class="subscription-subtitle">Get job alerts & updates straight to your inbox. Never miss an opportunity that matches your skills and interests.</p>
+                    </div>
+                    
+                    <form class="subscription-form" id="subscriptionForm">
+                        <input type="email" class="email-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="subscribe-btn">
+                            <i class="fas fa-paper-plane"></i> Subscribe Now
+                        </button>
                     </form>
+                    
+                    <div class="subscription-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personalized job matches</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Weekly opportunities</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>No spam, unsubscribe anytime</span>
+                        </div>
+                    </div>
+                    
+                    <p class="privacy-notice">We respect your privacy. Your email will only be used to send you job alerts.</p>
+                    
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Successfully Subscribed!</h3>
+                        <p>Thank you for subscribing. We'll send you the best job opportunities matching your profile.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -906,11 +1331,66 @@
         }
 
         // Newsletter subscription
-        function subscribeNewsletter(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('input[type="email"]').value;
-            alert('Thank you for subscribing! We\'ll send job alerts to: ' + email);
-            event.target.reset();
+        // Email Subscription Form Functionality
+        const subscriptionForm = document.getElementById('subscriptionForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        if (subscriptionForm) {
+            subscriptionForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get the email value
+                const email = this.querySelector('.email-input').value;
+                
+                // Validate email
+                if (!validateEmail(email)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+                
+                // In a real application, you would send this to your server
+                // For demo purposes, we'll just show the success message
+                
+                // Hide form and show success message
+                this.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Reset form after 5 seconds
+                setTimeout(() => {
+                    this.style.display = 'flex';
+                    successMessage.style.display = 'none';
+                    this.reset();
+                }, 5000);
+            });
+        }
+        
+        // Email validation function
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Add 3D effect on mouse move for subscription container
+        const subscriptionContainer = document.querySelector('.subscription-container');
+        
+        if (subscriptionContainer) {
+            subscriptionContainer.addEventListener('mousemove', function(e) {
+                const containerRect = this.getBoundingClientRect();
+                const containerCenterX = containerRect.left + containerRect.width / 2;
+                const containerCenterY = containerRect.top + containerRect.height / 2;
+                
+                const mouseX = e.clientX - containerCenterX;
+                const mouseY = e.clientY - containerCenterY;
+                
+                const rotateX = (mouseY / containerRect.height) * 5;
+                const rotateY = -(mouseX / containerRect.width) * 5;
+                
+                this.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            subscriptionContainer.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+            });
         }
 
         // Smooth scroll for anchor links
@@ -925,6 +1405,32 @@
                 }
             });
         });
+
+        // Hero Search Functions
+        function handleHeroSearch(event) {
+            event.preventDefault();
+            
+            const keyword = document.getElementById('heroJobKeyword').value;
+            const location = document.getElementById('heroLocation').value;
+            const category = document.getElementById('heroCategory').value;
+            
+            // Build search parameters
+            const params = new URLSearchParams();
+            if (keyword) params.append('keyword', keyword);
+            if (location) params.append('location', location);
+            if (category) params.append('category', category);
+            
+            // Redirect to find jobs page with search parameters
+            window.location.href = `find_job.html?${params.toString()}`;
+        }
+
+        function quickSearch(keyword, location) {
+            const params = new URLSearchParams();
+            if (keyword) params.append('keyword', keyword);
+            if (location) params.append('location', location);
+            
+            window.location.href = `find_job.html?${params.toString()}`;
+        }
 
         // Background image slideshow rotation
         const slides = document.querySelectorAll('.background-slide');
@@ -971,6 +1477,334 @@
                 this.style.transform = 'translateY(0)';
             });
         });
+
+        // Trending Jobs Carousel Functionality
+        let currentCarouselPosition = 0;
+        const carouselContainer = document.getElementById('trendingJobsCarousel');
+        const carouselTrack = carouselContainer.querySelector('.job-carousel-track');
+        const carouselCards = carouselTrack.querySelectorAll('.job-carousel-card');
+        const totalCards = carouselCards.length;
+        
+        // Calculate cards visible at a time based on screen width
+        function getVisibleCards() {
+            if (window.innerWidth >= 992) return 3; // Desktop
+            if (window.innerWidth >= 768) return 2; // Tablet
+            return 1; // Mobile
+        }
+        
+        // Initialize carousel indicators
+        function initCarouselIndicators() {
+            const indicatorsContainer = document.getElementById('trendingCarouselIndicators');
+            const visibleCards = getVisibleCards();
+            const totalDots = Math.ceil(totalCards / visibleCards);
+            
+            indicatorsContainer.innerHTML = '';
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => goToCarouselSlide(i);
+                indicatorsContainer.appendChild(dot);
+            }
+        }
+        
+        // Scroll carousel
+        function scrollTrendingCarousel(direction) {
+            const visibleCards = getVisibleCards();
+            const cardWidth = carouselCards[0].offsetWidth;
+            const gap = 20; // Gap between cards
+            const scrollAmount = (cardWidth + gap) * visibleCards;
+            
+            if (direction === 'left') {
+                currentCarouselPosition = Math.max(0, currentCarouselPosition - scrollAmount);
+            } else {
+                const maxScroll = (cardWidth + gap) * totalCards - carouselContainer.offsetWidth;
+                currentCarouselPosition = Math.min(maxScroll, currentCarouselPosition + scrollAmount);
+            }
+            
+            carouselTrack.style.transform = `translateX(-${currentCarouselPosition}px)`;
+            updateCarouselIndicators();
+            updateNavigationButtons();
+        }
+        
+        // Go to specific slide
+        function goToCarouselSlide(index) {
+            const visibleCards = getVisibleCards();
+            const cardWidth = carouselCards[0].offsetWidth;
+            const gap = 20;
+            currentCarouselPosition = (cardWidth + gap) * visibleCards * index;
+            carouselTrack.style.transform = `translateX(-${currentCarouselPosition}px)`;
+            updateCarouselIndicators();
+            updateNavigationButtons();
+        }
+        
+        // Update indicator dots
+        function updateCarouselIndicators() {
+            const dots = document.querySelectorAll('.carousel-dot');
+            const visibleCards = getVisibleCards();
+            const cardWidth = carouselCards[0].offsetWidth;
+            const gap = 20;
+            const currentIndex = Math.round(currentCarouselPosition / ((cardWidth + gap) * visibleCards));
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        // Update navigation button states
+        function updateNavigationButtons() {
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            const cardWidth = carouselCards[0].offsetWidth;
+            const gap = 20;
+            const maxScroll = (cardWidth + gap) * totalCards - carouselContainer.offsetWidth;
+            
+            prevBtn.style.opacity = currentCarouselPosition <= 0 ? '0.5' : '1';
+            prevBtn.style.pointerEvents = currentCarouselPosition <= 0 ? 'none' : 'auto';
+            
+            nextBtn.style.opacity = currentCarouselPosition >= maxScroll ? '0.5' : '1';
+            nextBtn.style.pointerEvents = currentCarouselPosition >= maxScroll ? 'none' : 'auto';
+        }
+        
+        // Initialize carousel on page load
+        initCarouselIndicators();
+        updateNavigationButtons();
+        
+        // Reinitialize on window resize
+        window.addEventListener('resize', () => {
+            currentCarouselPosition = 0;
+            carouselTrack.style.transform = 'translateX(0)';
+            initCarouselIndicators();
+            updateNavigationButtons();
+        });
+        
+        // Auto-scroll carousel every 5 seconds
+        setInterval(() => {
+            const cardWidth = carouselCards[0].offsetWidth;
+            const gap = 20;
+            const maxScroll = (cardWidth + gap) * totalCards - carouselContainer.offsetWidth;
+            
+            if (currentCarouselPosition >= maxScroll) {
+                currentCarouselPosition = 0;
+            } else {
+                scrollTrendingCarousel('right');
+            }
+        }, 5000);
+        
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carouselContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carouselContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                scrollTrendingCarousel('right');
+            }
+            if (touchEndX > touchStartX + 50) {
+                scrollTrendingCarousel('left');
+            }
+        }
+
+        // 3D Category Cards Interactive Effect
+        const categoryCards3D = document.querySelectorAll('.category-card-3d');
+        
+        categoryCards3D.forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const cardRect = this.getBoundingClientRect();
+                const cardCenterX = cardRect.left + cardRect.width / 2;
+                const cardCenterY = cardRect.top + cardRect.height / 2;
+                
+                const mouseX = e.clientX - cardCenterX;
+                const mouseY = e.clientY - cardCenterY;
+                
+                const rotateX = (mouseY / cardRect.height) * 10;
+                const rotateY = -(mouseX / cardRect.width) * 10;
+                
+                this.style.transform = `translateY(-15px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // Testimonials Carousel Functionality
+        let currentTestimonialPosition = 0;
+        let currentFilter = 'all';
+        const testimonialsContainer = document.getElementById('testimonialsCarousel');
+        const testimonialsTrack = testimonialsContainer.querySelector('.testimonials-carousel-track');
+        const allTestimonialItems = testimonialsTrack.querySelectorAll('.testimonial-carousel-item');
+        let visibleTestimonialItems = Array.from(allTestimonialItems);
+        
+        // Calculate cards visible at a time based on screen width
+        function getVisibleTestimonials() {
+            if (window.innerWidth >= 992) return 3; // Desktop
+            if (window.innerWidth >= 768) return 2; // Tablet
+            return 1; // Mobile
+        }
+        
+        // Filter testimonials by type
+        function filterTestimonials(type) {
+            currentFilter = type;
+            currentTestimonialPosition = 0;
+            
+            // Update active tab
+            document.querySelectorAll('.testimonial-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.closest('.testimonial-tab').classList.add('active');
+            
+            // Filter items
+            allTestimonialItems.forEach(item => {
+                if (type === 'all' || item.dataset.type === type) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Update visible items
+            visibleTestimonialItems = Array.from(allTestimonialItems).filter(item => {
+                return type === 'all' || item.dataset.type === type;
+            });
+            
+            testimonialsTrack.style.transform = 'translateX(0)';
+            initTestimonialsIndicators();
+            updateTestimonialsNavigationButtons();
+        }
+        
+        // Initialize carousel indicators
+        function initTestimonialsIndicators() {
+            const indicatorsContainer = document.getElementById('testimonialsIndicators');
+            const visibleCards = getVisibleTestimonials();
+            const totalDots = Math.ceil(visibleTestimonialItems.length / visibleCards);
+            
+            indicatorsContainer.innerHTML = '';
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => goToTestimonialSlide(i);
+                indicatorsContainer.appendChild(dot);
+            }
+        }
+        
+        // Scroll carousel
+        function scrollTestimonials(direction) {
+            const visibleCards = getVisibleTestimonials();
+            const cardWidth = visibleTestimonialItems[0]?.offsetWidth || 300;
+            const gap = 20;
+            const scrollAmount = (cardWidth + gap) * visibleCards;
+            
+            if (direction === 'left') {
+                currentTestimonialPosition = Math.max(0, currentTestimonialPosition - scrollAmount);
+            } else {
+                const maxScroll = (cardWidth + gap) * visibleTestimonialItems.length - testimonialsContainer.offsetWidth;
+                currentTestimonialPosition = Math.min(maxScroll, currentTestimonialPosition + scrollAmount);
+            }
+            
+            testimonialsTrack.style.transform = `translateX(-${currentTestimonialPosition}px)`;
+            updateTestimonialsIndicators();
+            updateTestimonialsNavigationButtons();
+        }
+        
+        // Go to specific slide
+        function goToTestimonialSlide(index) {
+            const visibleCards = getVisibleTestimonials();
+            const cardWidth = visibleTestimonialItems[0]?.offsetWidth || 300;
+            const gap = 20;
+            currentTestimonialPosition = (cardWidth + gap) * visibleCards * index;
+            testimonialsTrack.style.transform = `translateX(-${currentTestimonialPosition}px)`;
+            updateTestimonialsIndicators();
+            updateTestimonialsNavigationButtons();
+        }
+        
+        // Update indicator dots
+        function updateTestimonialsIndicators() {
+            const dots = document.querySelectorAll('.testimonial-dot');
+            const visibleCards = getVisibleTestimonials();
+            const cardWidth = visibleTestimonialItems[0]?.offsetWidth || 300;
+            const gap = 20;
+            const currentIndex = Math.round(currentTestimonialPosition / ((cardWidth + gap) * visibleCards));
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        // Update navigation button states
+        function updateTestimonialsNavigationButtons() {
+            const prevBtn = document.querySelector('.testimonial-prev');
+            const nextBtn = document.querySelector('.testimonial-next');
+            
+            if (!prevBtn || !nextBtn || visibleTestimonialItems.length === 0) return;
+            
+            const cardWidth = visibleTestimonialItems[0]?.offsetWidth || 300;
+            const gap = 20;
+            const maxScroll = (cardWidth + gap) * visibleTestimonialItems.length - testimonialsContainer.offsetWidth;
+            
+            prevBtn.style.opacity = currentTestimonialPosition <= 0 ? '0.5' : '1';
+            prevBtn.style.pointerEvents = currentTestimonialPosition <= 0 ? 'none' : 'auto';
+            
+            nextBtn.style.opacity = currentTestimonialPosition >= maxScroll ? '0.5' : '1';
+            nextBtn.style.pointerEvents = currentTestimonialPosition >= maxScroll ? 'none' : 'auto';
+        }
+        
+        // Initialize testimonials carousel on page load
+        initTestimonialsIndicators();
+        updateTestimonialsNavigationButtons();
+        
+        // Reinitialize on window resize
+        window.addEventListener('resize', () => {
+            currentTestimonialPosition = 0;
+            testimonialsTrack.style.transform = 'translateX(0)';
+            initTestimonialsIndicators();
+            updateTestimonialsNavigationButtons();
+        });
+        
+        // Auto-scroll testimonials carousel every 6 seconds
+        setInterval(() => {
+            if (visibleTestimonialItems.length === 0) return;
+            
+            const cardWidth = visibleTestimonialItems[0]?.offsetWidth || 300;
+            const gap = 20;
+            const maxScroll = (cardWidth + gap) * visibleTestimonialItems.length - testimonialsContainer.offsetWidth;
+            
+            if (currentTestimonialPosition >= maxScroll) {
+                currentTestimonialPosition = 0;
+                testimonialsTrack.style.transform = 'translateX(0)';
+            } else {
+                scrollTestimonials('right');
+            }
+        }, 6000);
+        
+        // Touch/swipe support for mobile
+        let testimonialTouchStartX = 0;
+        let testimonialTouchEndX = 0;
+        
+        testimonialsContainer.addEventListener('touchstart', (e) => {
+            testimonialTouchStartX = e.changedTouches[0].screenX;
+        });
+        
+        testimonialsContainer.addEventListener('touchend', (e) => {
+            testimonialTouchEndX = e.changedTouches[0].screenX;
+            handleTestimonialSwipe();
+        });
+        
+        function handleTestimonialSwipe() {
+            if (testimonialTouchEndX < testimonialTouchStartX - 50) {
+                scrollTestimonials('right');
+            }
+            if (testimonialTouchEndX > testimonialTouchStartX + 50) {
+                scrollTestimonials('left');
+            }
+        }
     </script>
 </body>
 </html>
